@@ -4,6 +4,8 @@ module.exports = function(app, passport) {
 
     // show the home page (will also have our login links)
     app.get('/', function(req, res) {
+        if (req.isAuthenticated())
+            res.redirect('/profile')
         res.render('index.ejs');
     });
 

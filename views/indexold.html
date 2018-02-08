@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../views/partials/head %>
+</head>
+
+<body class="container">
+
+
+
+<main>
+  <div class="container">
+    <div class="intro-text">
+      <div class="intro-lead-in">Souvenir for your loved ones</div>
+      <div class="intro-heading">CHINO</div>
+     
+      <!-- <div>login</div> -->
+      <% if (user) { %>
+      <a href="/logout" class="page-scroll btn btn-xl">Logout</a>
+      <a href="/indext" class="page-scroll btn facebookbtn">Design Yourself</a>
+      <% } %>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+   <% include ../views/partials/footer %>
+</footer>
+</body>
+</html>
+
+
+ <% reqproduct.forEach(function(file,i){ %>
+                        <strong>First name</strong>: <%= file.userID %>
+
+                <% }) %>
+
+
+
+  
