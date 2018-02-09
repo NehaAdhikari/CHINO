@@ -9,7 +9,7 @@ const reqProd = require('../app/models/reqProd');
 
 var storage = multer.diskStorage({
  destination: function(req, file, cb) {
- cb(null, 'uploads/')
+ cb(null, 'public/uploads/')
  },
   filename: function (req, file, cb) {
     cb(null, file.originalname)
@@ -31,13 +31,13 @@ router.post('/insert',upload.any(), function (req,res){
   newreqProd.productSize = data.productSize;
   newreqProd.productSample = images.productSample;
   newreqProd.productQuantity = data.productQuantity;
-  newreqProd.image = data.originalname;
-  newreqProd.email=data.semester;
-  newreqProd.contact=data.department;
+  newreqProd.image = images.originalname;
+  newreqProd.email=data.email;
+  newreqProd.contact=data.contact;
   newreqProd.total=data.uploadtype;
   newreqProd.notes = data.notes;
-  newreqProd.image = data.image;
   newreqProd.userID = data.userID;
+  newreqProd.deliveryAddress = data.deliveryAddress;
 
   newreqProd.save(function(err, doc){
     if (err) {console.log('error while saving in database');}

@@ -171,7 +171,7 @@
       <% if (user) { %>
       <a href="/profile" class="w3-bar-item w3-button"><i class="fa fa-user"></i> <%= user.local.email %></a>
       <a href="/indext" class="w3-bar-item w3-button"><i class="fa fa-paint-brush"></i> DESIGN YOURSELF</a>
-      <a href="/orderedList" class="w3-bar-item w3-button"><i class="fa fa-paint-brush"></i> YOUR ORDERS</a>
+      <a href="/orderedList/<%= user._id %>" class="w3-bar-item w3-button"><i class="fa fa-paint-brush"></i> YOUR ORDERS</a>
       <a href="/logout" class="w3-bar-item w3-button">LOGOUT</a>
       <% } else { %>
       <a href="/login" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> LOGIN</a>
@@ -399,16 +399,16 @@
     <div class="form-group">
       <strong>Size:<br></strong>
 				<label class="radio-inline">
-			      <input type="radio" name="productSize">S
+			      <input type="radio" value="S" name="productSize">S
 			    </label>
 			    <label class="radio-inline">
-			      <input type="radio" name="productSize">M
+			      <input type="radio" value="M" name="productSize">M
 			    </label>
 			    <label class="radio-inline">
-			      <input type="radio" name="productSize">L
+			      <input type="radio" value="L" name="productSize">L
 			    </label>
 			    <label class="radio-inline">
-			      <input type="radio" name="productSize">XL
+			      <input type="radio" value= "XL" name="productSize">XL
 			    </label>
 
     </div>
@@ -426,6 +426,10 @@
     <div class="form-group">
       <label for="email">Email Id:</label>
       <input type="email" class="form-control" id="email" placeholder="abc@xyz.com" name="email">
+    </div>
+    <div class="form-group">
+      <label for="email">Delivery Address:</label>
+      <input type="string" class="form-control" id="address" placeholder="28 Kilo, Dhulikhel" name="deliveryAddress">
     </div>
     <div class="form-group">
       <label for="notes">Extra notes:</label>

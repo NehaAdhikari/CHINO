@@ -43,14 +43,14 @@ module.exports = function(app, passport) {
     });
 
     // PROFILE SECTION =========================
-    app.get('/orderedList', isLoggedIn, function(req, res) {
+    app.get('/orderedList/:id', isLoggedIn, function(req, res) {
         /*res.render('orderedList.ejs', {
             reqprod : req.reqprod,
             user : req.user
         });*/
 
             // mongoose operations are asynchronous, so you need to wait 
-        reqProduct.find({}, function(err, data) {
+        reqProduct.find({userID : req.params.id}, function(err, data) {
         // note that data is an array of objects, not a single object!
         res.render('orderedList.ejs', {
             user : req.user,
@@ -79,7 +79,8 @@ module.exports = function(app, passport) {
         // LOGIN ===============================
         // show the login form
         app.get('/login', isNotLoggedIn, function(req, res) {
-            res.render('login.ejs', { message: req.flash('loginMessage') });
+            res.render('login.ejs', { message: req.flash('loginMessage'),
+            user : req.user });
         });
 
         // process the login form
@@ -92,7 +93,8 @@ module.exports = function(app, passport) {
         // SIGNUP =================================
         // show the signup form
         app.get('/signup', isNotLoggedIn, function(req, res) {
-            res.render('signup.ejs', { message: req.flash('signupMessage') });
+            res.render('signup.ejs', { message: req.flash('signupMessage'),
+            user : req.user });
         });
 
         // process the signup form

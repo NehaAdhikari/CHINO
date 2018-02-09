@@ -1,168 +1,49 @@
-<!doctype html>
-<html>
-<head>
-    <title>CHINO | Precious Souvenir</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
 
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-    body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
-    body, html {
-        height: 100%;
-        line-height: 1.8;
-    }
-    /* Full height image header */
-    .bgimg-1 {
-        background-position: center;
-        background-size: cover;
-        background-image: url("/images/background.jpeg");
-        min-height: 100%;
-    }
-    .w3-bar .w3-button {
-        padding: 16px;
-    }
-    </style>
-</head>
+<% include ./partials/header %>
 
-<body>
 
-    <!-- Navbar (sit on top) -->
-<div class="w3-top">
-  <div class="w3-bar w3-white w3-card" id="myNavbar">
-    <a href="#home" class="w3-bar-item w3-button w3-wide">CHINO</a>
-    <!-- Right-sided navbar links -->
-    <div class="w3-right w3-hide-small">
-      <a href="/about" class="w3-bar-item w3-button"> ABOUT US</a>
-      <a href="/product" class="w3-bar-item w3-button"><i class="fa fa-th"></i> PRODUCT</a>
-      
-      <a href="/contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
-      <% if (user) { %>
-      <a href="/profile" class="w3-bar-item w3-button"><i class="fa fa-user"></i> <%= user.local.email %></a>
-      <a href="/indext" class="w3-bar-item w3-button"><i class="fa fa-paint-brush"></i> DESIGN YOURSELF</a>
-      <a href="/logout" class="w3-bar-item w3-button">LOGOUT</a>
-      <% } else { %>
-      <a href="/login" class="w3-bar-item w3-button">LOGIN</a>
-      <a href="/signup" class="w3-bar-item w3-button">REGISTER</a>
-      <% } %>
-    </div>
-    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+<div class="container">
 
-    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
-      <i class="fa fa-bars"></i>
-    </a>
-  </div>
-</div>
+  <div class="well">
 
-<!-- Sidebar on small screens when clicking the menu icon -->
-<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
-  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
-  <a href="/about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT US</a>
-  <a href="/product" onclick="w3_close()" class="w3-bar-item w3-button">PRODUCT</a>
-  <a href="/contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
-  <% if (user) { %>
-  <a href="/profile" onclick="w3_close()" class="w3-bar-item w3-button"><%= user.local.email %></a>
-  <a href="/indext" onclick="w3_close()" class="w3-bar-item w3-button">DESIGN YOURSELF</a>
-  <a href="/logout" onclick="w3_close()" class="w3-bar-item w3-button">LOGOUT</a>
-  <% } else { %>
-  <a href="/login" onclick="w3_close()" class="w3-bar-item w3-button">LOGIN</a>
-  <a href="/signup" onclick="w3_close()" class="w3-bar-item w3-button"> REGISTER</a>
-  <% } %>
-  
-</nav>
+   <table class="table table-hover" id="myTable">
+  <thead>
+    <tr>
+      <th>Size</th>
+      <th>Quantity</th>
+      <th>Delivery Address</th>
+      <th>Associated Email</th>
+      <th>Associated Contact</th>
+      <th>Notes</th>
+      <th>Total</th>
+      <th></th>
+    </tr>
+  </thead>
 
-<div class = "row">
-  <div class="col-sm-6">
-            <div class="well">
-                <h3><span class="fa fa-user"></span> Local</h3>
-
-                <% if (reqproduct) { %>
-                    <p>
-                <% reqproduct.forEach(function(file,i){ %>
-                        <strong>First name</strong>: <%= file.userID %>
-
-                <% }) %>
-
-                    </p>
-                    
-                    <a href="/unlink/local" class="btn btn-default">Unlink</a>
-                <% } else { %>
-                    <a href="/connect/local" class="btn btn-default">Connect Local</a>
-                <% } %>
-
-            </div>
-        </div>
-
-</div>
-
-<div class="w3-container">
-
-  
-
-   <table id="myTable">
-
-  <tr>
-    <th>Course Code:</th>
-    <th>Course Name:</th>
-    <th>Year: </th>
-    <th>Semester: </th>
-    <th>File Type: </th>
-    <th>Download</th>
-  </tr>
-
-   <% if (reqproduct.userID == user._id) { %>
   <% reqproduct.forEach(function(file,i){ %>
-
-  <tr>
-    <td><%= file.productSize %></td>
-    <td><%= file.productName %></td>
-    <td><%= file.productQuantity %></td>
-    
-  </tr>
+  <tbody>
+    <tr>
+      <td><%= file.productSize %></td>
+      <td><%= file.productQuantity %></td>
+      <td><%= file.deliveryAddress %></td>
+      <td><%= file.email %></td>
+      <td><%= file.contact %></td>
+      <td><%= file.notes %></td>
+      <td><%= file.total %> </td>
+      <td><img src="/uploads/<%= file.image %>" width="200" height="200"></td>
+      
+      
+    </tr>
   <% }) %>
-
+  </tbody>
 </table>
 
-  <% } %>
-
-
-
 
 </div>
 
 
- 
-<!-- Add Google Maps -->
-<script>
+</div>
+
+<% include ./partials/footer %>
 
 
-// Modal Image Gallery
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
-}
-
-
-// Toggle between showing and hiding the sidebar when clicking the menu icon
-var mySidebar = document.getElementById("mySidebar");
-
-function w3_open() {
-    if (mySidebar.style.display === 'block') {
-        mySidebar.style.display = 'none';
-    } else {
-        mySidebar.style.display = 'block';
-    }
-}
-
-// Close the sidebar with the close button
-function w3_close() {
-    mySidebar.style.display = "none";
-}
-</script>
-
-</body>
-</html>
