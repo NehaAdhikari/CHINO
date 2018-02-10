@@ -46,6 +46,7 @@
 	body, html {
 	    height: 100%;
 	    line-height: 1.8;
+	    background-color: #F1F1F1;
 	}
 	/* Full height image header */
 	.bgimg-1 {
@@ -58,30 +59,22 @@
 	    padding: 16px;
 	}
 
+	.w3-padding-64{
+		padding-top: 10px !important;
+		padding-bottom: 0px !important;
+	}
+
 	.div1 {
 	    width: 300px;
 	    height: 575px;
 	    border: 1px;
 	}
 
-	body{
-	    background-color: #fffafa!important;;
-	}
-		 	    .row.display-flex {
-	  display: flex;
-	  flex-wrap: wrap;
-	}
 	.thumbnail {
 	  height: 100%;
 	  text-align: center;
 	}
-	nav
-	{
-	    background-color: #402A2A;
-	    margin-bottom: 0!important;
-	    height: 10%;
 
-	}
 
 	.navbar-static-top .navbar-brand,
 	.navbar-static-top .navbar-brand:hover,
@@ -169,7 +162,7 @@
       
       <a href="/contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
       <% if (user) { %>
-      <a href="/profile" class="w3-bar-item w3-button"><i class="fa fa-user"></i> <%= user.local.email %></a>
+      <a href="/profile" class="w3-bar-item w3-button"><i class="fa fa-user"></i> <%= user.local.username %></a>
       <a href="/indext" class="w3-bar-item w3-button"><i class="fa fa-paint-brush"></i> DESIGN YOURSELF</a>
       <a href="/orderedList/<%= user._id %>" class="w3-bar-item w3-button"><i class="fa fa-paint-brush"></i> YOUR ORDERS</a>
       <a href="/logout" class="w3-bar-item w3-button">LOGOUT</a>
@@ -193,7 +186,7 @@
   <a href="/product" onclick="w3_close()" class="w3-bar-item w3-button">PRODUCT</a>
   <a href="/contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
   <% if (user) { %>
-  <a href="/profile" onclick="w3_close()" class="w3-bar-item w3-button"><%= user.local.email %></a>
+  <a href="/profile" onclick="w3_close()" class="w3-bar-item w3-button"><%= user.local.username %></a>
   <a href="/indext" onclick="w3_close()" class="w3-bar-item w3-button">DESIGN YOURSELF</a>
   <a href="/logout" onclick="w3_close()" class="w3-bar-item w3-button">LOGOUT</a>
   <% } else { %>
@@ -495,28 +488,7 @@
 
 
 
-    
-<!-- Footer ================================================== -->
- <!--      <footer class="footer">      
-      	<div class="container">
-      	<div class="container" style='color:blue'>
-       © 2017 All Rights Reserved
-    </div>
-	        <p class="pull-right"><a href="#">Back to top</a></p>	        
-	      </div>       
-    </footer> -->
-    <!-- Footer -->
-<footer class="w3-center w3-black w3-padding-64">
-<!--   <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a> -->
-  <div class="w3-xlarge w3-section">
-        <a href="https://www.facebook.com/CHINO_Ecstasy-398715973875547/"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
-        <i class="fa fa-instagram w3-hover-opacity"></i>
-        <i class="fa fa-twitter w3-hover-opacity"></i>
-  </div>
-  <!-- <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p> -->
-  <p class="text-center text-muted">© Copyright 2018 Chino</p>
-</footer>
-    <!-- Le javascript
+Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->    
     <script src="/javascripts/bootstrap.min.js"></script>    
@@ -572,31 +544,9 @@ function downloadFabric(canvas,name){
      }
 
 
-     // Modal Image Gallery
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
-}
-
-
-// Toggle between showing and hiding the sidebar when clicking the menu icon
-var mySidebar = document.getElementById("mySidebar");
-
-function w3_open() {
-    if (mySidebar.style.display === 'block') {
-        mySidebar.style.display = 'none';
-    } else {
-        mySidebar.style.display = 'block';
-    }
-}
-
-// Close the sidebar with the close button
-function w3_close() {
-    mySidebar.style.display = "none";
-}
 
  </script>
+
+ <% include ./partials/footer %>
   </body>
 </html>
