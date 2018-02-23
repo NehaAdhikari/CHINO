@@ -62,6 +62,10 @@
       <a href="/login" class="w3-bar-item w3-button">LOGIN</a>
       <a href="/signup" class="w3-bar-item w3-button">REGISTER</a>
       <% } %>
+      <% if (user && user.local.username == "admin") { %>
+      <a href="/userview" class="w3-bar-item w3-button"><i class="fa fa-user"></i> View users</a>
+      <% } %>
+
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 

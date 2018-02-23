@@ -1,4 +1,5 @@
 var reqProduct = require('../app/models/reqProd');
+var users = require('../app/models/user');
 
 module.exports = function(app, passport) {
 
@@ -55,6 +56,17 @@ module.exports = function(app, passport) {
         res.render('orderedList.ejs', {
             user : req.user,
             reqproduct: data
+        });
+    });
+    });
+
+    app.get('/userview', isLoggedIn, function(req, res) {
+         users.find({}, function(err, data) {
+        // note that data is an array of objects, not a single object!
+        res.render('userview.ejs', {
+            user : req.user,
+            /*reqproduct: data,*/
+            users : data
         });
     });
     });
