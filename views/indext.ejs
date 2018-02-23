@@ -40,6 +40,13 @@
     <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
     <link href="/stylesheets/bootstrap-responsive.min.css" rel="stylesheet">
 
+<!--     <script src="/javascripts/html2canvas.js" type="text/javascript"></script>
+<script src="/javascripts/canvas-toBlob.js" type="text/javascript"></script>
+<script src="/javascripts/FileSaver.js" type="text/javascript"></script>
+<script src="/javascripts/jquery.plugin.html2canvas.js" type="text/javascript"></script> -->
+<!-- 
+        <link rel="stylesheet" href="/stylesheets/feedback.css"  type="text/css" media="screen" /> -->
+
 	 <style type="text/css">
 
 	body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
@@ -130,20 +137,20 @@
 			    /* filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=1.5); */
 			    -ms-transform:rotate(90deg);		   
 			}		
-			.Arial{font-family:"Arial";}
-			.Helvetica{font-family:"Helvetica";}
-			.MyriadPro{font-family:"Myriad Pro";}
-			.Delicious{font-family:"Delicious";}
-			.Verdana{font-family:"Verdana";}
-			.Georgia{font-family:"Georgia";}
-			.Courier{font-family:"Courier";}
-			.ComicSansMS{font-family:"Comic Sans MS";}
-			.Impact{font-family:"Impact";}
-			.Monaco{font-family:"Monaco";}
-			.Optima{font-family:"Optima";}
-			.HoeflerText{font-family:"Hoefler Text";}
-			.Plaster{font-family:"Plaster";}
-			.Engagement{font-family:"Engagement";}
+	.Arial{font-family:"Arial";}
+	.Helvetica{font-family:"Helvetica";}
+	.MyriadPro{font-family:"Myriad Pro";}
+	.Delicious{font-family:"Delicious";}
+	.Verdana{font-family:"Verdana";}
+	.Georgia{font-family:"Georgia";}
+	.Courier{font-family:"Courier";}
+	.ComicSansMS{font-family:"Comic Sans MS";}
+	.Impact{font-family:"Impact";}
+	.Monaco{font-family:"Monaco";}
+	.Optima{font-family:"Optima";}
+	.HoeflerText{font-family:"Hoefler Text";}
+	.Plaster{font-family:"Plaster";}
+	.Engagement{font-family:"Engagement";}
 
 	 </style>
   </head>
@@ -254,12 +261,12 @@
 				     	<div class="well">
 <!--					      	<h3>Tee Styles</h3>-->
 <!--						      <p>-->
-						      	<select id="">                        
+						      <!-- 	<select id="">                        
 				                    <option value="1" selected="selected">Short Sleeve Shirts</option>
 				                    <option value="2">Long Sleeve Shirts</option>                                        
 				                    <option value="3">Hoodies</option>                    
 				                    <option value="4">Tank tops</option>
-								</select>				
+								</select> -->				
 <!--						      </p>-->								
 					      </div>
 					      <div class="well">
@@ -356,7 +363,8 @@
 							  </div>
 							</div>			  
 						</div>												
-					</div>					  		
+					</div>		
+  		
 				<!--	EDITOR      -->					
 					<div id="shirtDiv" class="page" style="width: 530px; height: 630px; position: relative; background-color: rgb(255, 255, 255);">
 						<img id="tshirtFacing" src="../images/crew_front.png"></img>
@@ -389,7 +397,7 @@
 
 	<form action="reqProduct/insert" enctype="multipart/form-data" method="post" onsubmit="return confirm('Are you sure you have got everything right?');">
 	
-    <div class="form-group">
+    <div id = "formm" class="form-group">
       <strong>Size:<br></strong>
 				<label class="radio-inline">
 			      <input type="radio" value="S" name="productSize">S
@@ -411,6 +419,9 @@
     </div>
       <div class="form-group">
       <input type="hidden" class="form-control" id="userID" name = "userID" value="<%= user._id %>">
+    </div>
+    <div class="form-group">
+      <input type="hidden" class="form-control" id="userDesign" name = "userDesign" value="google.png">
     </div>
     <div class="form-group">
       <label for="contact">Contact No:</label>
@@ -436,7 +447,11 @@
     
     <button type="submit" name="submit" class="btn btn-default">Submit</button>
   </form>
+
   </div>
+
+    <a href="#" onclick="this.href = $('#shirtDiv img:first').attr('src');" download>Click here to download image</a>
+    <a id="download" download="image.png"><button type="button" onClick="download1()">Download1</button></a>
 
   </div>
   </div>
@@ -488,11 +503,11 @@
 
 
 
-Le javascript
-    ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->    
-    <script src="/javascripts/bootstrap.min.js"></script>    
+ <!--    <script src="/javascripts/bootstrap.min.js"></script>     -->
     <script type="text/javascript">
+
+ 	
 
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-35639689-1']);
@@ -506,20 +521,34 @@ Le javascript
 
 </script>
 
+    <!-- Le javascript -->
+<!--     <script src="/javascripts/jquery.js"></script> -->
+  <!--   <script src="/javascripts/feedback.js"></script> -->
+    
+
+
 <script>
 
 
+	function download1(){
+        var download = document.getElementById("download");
+        var image = document.getElementById("tcanvas").toDataURL("image/png")
+                    .replace("image/png", "image/octet-stream");
+        download.setAttribute("href", image);
 
+    }
+
+
+/*
 function download(url,name){
-// make the link. set the href and download. emulate dom click
   $('<a>').attr({href:url,download:name})[0].click();
-}
-function downloadFabric(canvas,name){
+}*/
+
+/*function downloadFabric(canvas,name){
 	console.log('export image');
 	var tshirt_design = canvas.toDataURL();
-//  convert the canvas to a data url and download it.
   download(canvas.toDataURL(),name+'.png');
-}
+}*/
    /*   function exportCanvasAsPNG(id, fileName) {
 
     var canvasElement = document.getElementById(tcanvas);

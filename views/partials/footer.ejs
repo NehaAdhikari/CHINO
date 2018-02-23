@@ -13,6 +13,15 @@
 <!-- Add Google Maps -->
 <script>
 
+      function downloadfunc(){
+        html2canvas($('#shirtDiv'),{
+          onrendered: function(canvas){
+            var img = canvas.toDataURL()
+            window.open(img);
+          }
+        });
+      }
+
 
 // Modal Image Gallery
 function onClick(element) {

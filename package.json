@@ -9,6 +9,7 @@
     "ejs": "~2.5.2",
     "express": "~4.14.0",
     "express-session": "~1.14.1",
+    "html2canvas": "^1.0.0-alpha.10",
     "method-override": "~2.3.6",
     "mongoose": "~4.13.1",
     "morgan": "~1.7.0",
@@ -19,6 +20,7 @@
     "passport-local": "~1.0.0",
     "passport-twitter": "~1.0.4",
     "path": "^0.12.7",
-    "serve-favicon": "^2.4.5"
+    "serve-favicon": "^2.4.5",
+    "webshot": "^0.18.0"
   }
 }

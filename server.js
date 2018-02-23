@@ -20,6 +20,8 @@ var multer = require('multer');
 mongoose.connect('mongodb://localhost/chinoeasyauth');
 var db = mongoose.collection;
 
+//var webshot = require('webshot');
+
 
 require('./config/passport')(passport); // pass passport for configuration
 

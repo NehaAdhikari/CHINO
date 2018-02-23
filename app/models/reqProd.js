@@ -13,6 +13,7 @@ var reqProductSchema = mongoose.Schema({
 	total: Number,
 	image: String,
 	deliveryAddress: String,
+	userDesign: String,
 	userID: String
 });
 
