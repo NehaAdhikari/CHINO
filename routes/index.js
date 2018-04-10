@@ -1,5 +1,10 @@
 var reqProduct = require('../app/models/reqProd');
 var users = require('../app/models/user');
+var Cart = require('../app/models/cart');
+
+
+var Product = require('../app/models/product');
+var Order = require('../app/models/order');
 
 module.exports = function(app, passport) {
 
@@ -19,10 +24,110 @@ module.exports = function(app, passport) {
     });
 
     app.get('/product', function(req, res) {
+    var successMsg = req.flash('success')[0];
+    Product.find(function(err, docs) {
+    var productChunks = [];
+    var chunkSize = 3;
+    for (var i = 0; i < docs.length; i += chunkSize) {
+      productChunks.push(docs.slice(i, i + chunkSize));
+    }
         res.render('product.ejs',{
-            user : req.user
+            user : req.user,
+            products: productChunks,
+            successMsg: successMsg,
+            noMessages: !successMsg
         });
     });
+});
+
+    app.get('/add-to-cart/:id', function(req, res, next) {
+      var productId = req.params.id;
+      var cart = new Cart(req.session.cart ? req.session.cart : {});
+
+
+      Product.findById(productId, function(err, product) {
+        if (err) {
+          return res.redirect('/product');
+        }
+        cart.add(product, product.id);
+        req.session.cart = cart;
+        res.redirect('/product');
+      });
+    });
+
+    app.get('/reduce/:id', function(req, res, next) {
+      var productId = req.params.id;
+      var cart = new Cart(req.session.cart ? req.session.cart : {});
+
+      cart.reduceByOne(productId);
+      req.session.cart = cart;
+      res.redirect('/shopping-cart');
+    });
+
+    app.get('/remove/:id', function(req, res, next) {
+      var productId = req.params.id;
+      var cart = new Cart(req.session.cart ? req.session.cart : {});
+
+      cart.removeItem(productId);
+      req.session.cart = cart;
+      res.redirect('/shopping-cart');
+    });
+
+    app.get('/shopping-cart', function(req, res, next) {
+      if (!req.session.cart) {
+        return res.render('shopping-cart.ejs', {
+          user : req.user,
+          products: null
+        });
+      }
+      var cart = new Cart(req.session.cart);
+      res.render('shopping-cart.ejs', {
+        products: cart.generateArray(),
+         user : req.user,
+        totalPrice: cart.totalPrice
+      });
+    });
+
+    app.get('/checkout', isLoggedIn, function(req, res, next) {
+      if (!req.session.cart) {
+        return res.redirect('/shopping-cart');
+      }
+      var cart = new Cart(req.session.cart);
+      var errMsg = req.flash('error')[0];
+      res.render('checkout.ejs', {
+        total: cart.totalPrice,
+        errMsg: errMsg,
+        noError: !errMsg
+      });
+    });
+
+    app.post('/checkout', isLoggedIn, function(req, res, next) {
+      if (!req.session.cart) {
+        return res.redirect('/shopping-cart');
+      }
+      var cart = new Cart(req.session.cart);
+
+
+        var order = new Order({
+          user: req.user,
+          cart: cart,
+          address: req.body.address,
+          name: req.body.name,
+          contact: req.body.contact,
+          email: req.body.email
+
+        });
+        order.save(function(err, result) {
+          req.flash('success', 'Checkout has been made!');
+          req.session.cart = null;
+          res.redirect('/');
+        });
+
+    });
+
+
+
+
 
     app.get('/about', function(req, res) {
         res.render('about.ejs',{
@@ -77,7 +182,7 @@ module.exports = function(app, passport) {
         res.redirect('/');
     });
 
-    app.get('/indext', isLoggedIn, function(req,res){
+    app.get('/indext', function(req,res){
         res.render('indext.ejs',{
             user : req.user
         })
@@ -256,7 +361,7 @@ function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
         return next();
 
-    res.redirect('/');
+    res.redirect('/login');
 }
 
 function isNotLoggedIn(req, res, next) {

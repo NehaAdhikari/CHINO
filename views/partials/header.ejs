@@ -53,6 +53,11 @@
       <a href="/product" class="w3-bar-item w3-button"><i class="fa fa-th"></i> PRODUCT</a>
       
       <a href="/contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
+      <a href="/shopping-cart">
+      <i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping cart
+      <% if (session.cart) { %>
+      <span class="badge"><%= session.cart.totalQty %></span> <% } %>
+      </a>
       <% if (user) { %>
       <a href="/profile" class="w3-bar-item w3-button"><i class="fa fa-user"></i> <%= user.local.username %></a>
       <a href="/indext" class="w3-bar-item w3-button"><i class="fa fa-paint-brush"></i> DESIGN YOURSELF</a>

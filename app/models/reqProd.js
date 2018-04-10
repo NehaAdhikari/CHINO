@@ -14,7 +14,7 @@ var reqProductSchema = mongoose.Schema({
 	image: String,
 	deliveryAddress: String,
 	userDesign: String,
-	userID: String
+	userID: String /*{type: mongoose.Schema.Types.ObjectId, ref: 'User'}*/
 });
 
 

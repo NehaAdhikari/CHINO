@@ -1,6 +1,26 @@
 
 <% include ./partials/header %>
 
+  <% products.forEach(function(product,i){ %>
+      <div class="row">
+         <% product.forEach(function(product,i){ %>
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <img src="<%= product.imagePath %>" alt="..." class="img-responsive">
+                    <div class="caption">
+                        <h3><%= product.title %></h3>
+                        <p class="description"><%= product.description %></p>
+                        <div class="clearfix">
+                            <div class="price pull-left">R$<%= product.price %></div>
+                            <a href="/add-to-cart/<%= product._id %>" class="btn btn-success pull-right" role="button">Add to cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          <% }) %>
+              </div>
+  <% }) %>
+
 <div class="container w3-light-grey" id="home">
   <div class="page-header text-center">
   <h3 class="w3-center">OUR PRODUCTS</h3>

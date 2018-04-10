@@ -15,6 +15,7 @@ var morgan       = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var session      = require('express-session');
+var MongoStore = require('connect-mongo')(session);
 var multer = require('multer');
 
 mongoose.connect('mongodb://localhost/chinoeasyauth');
@@ -34,17 +35,34 @@ app.use(express.static(path.join(__dirname, 'public')));
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
+// res.locals is an object passed to hbs engine
+
+
 app.set('view engine', 'ejs'); // set up ejs for templating
 
 // required for passport
-app.use(session({
+/*app.use(session({
     secret: 'ilovescotchscotchyscotchscotch', // session secret
     resave: true,
     saveUninitialized: true
+}));*/
+app.use(session({
+  secret: 'mysupersecret', 
+  resave: false, 
+  saveUninitialized: false,
+  store: new MongoStore({ mongooseConnection: mongoose.connection }),
+  cookie: { maxAge: 180 * 60 * 1000 }
 }));
+
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
+
+app.use(function(req, res, next) {
+    res.locals.login = req.isAuthenticated();
+    res.locals.session = req.session;
+    next();
+});
 
 // routes ======================================================================
 require('./routes/index.js')(app, passport); // load our routes and pass in our app and fully configured passport
