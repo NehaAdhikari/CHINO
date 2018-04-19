@@ -7,46 +7,69 @@
 <div class="container">
   <div class="page-header text-center">
     
-        <h1><span class="fa fa-anchor"></span> Your Orders</h1>
+        <h1><span class="fa fa-anchor"></span> Your Designed Orders</h1>
     </div>
 
-
-  <div class="well">
-   
-   <table class="table table-hover" id="myTable">
-  <thead>
-    <tr>
-      <th>Size</th>
-      <th>Quantity</th>
-      <th>Delivery Address</th>
-      <th>Associated Email</th>
-      <th>Associated Contact</th>
-      <th>Notes</th>
-      <th>Total</th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <% reqproduct.forEach(function(file,i){ %>
-  <tbody>
-    <tr>
-      <td><%= file.productSize %></td>
-      <td><%= file.productQuantity %></td>
-      <td><%= file.deliveryAddress %></td>
-      <td><%= file.email %></td>
-      <td><%= file.contact %></td>
-      <td><%= file.notes %></td>
-      <td><%= file.total %> </td>
-      <td><img src="/uploads/<%= file.image %>" width="200" height="200"></td>
-      
-      
-    </tr>
-  <% }) %>
-  </tbody>
-</table>
+    <% reqproduct.forEach(function(file,i){ %>
+      <div class="panel panel-default">
+      <div class="row">
+        <div class ="col-sm-9 col-md-9 col-lg-9">
+        <div class="panel-body">
+          <ul class="list-group">
+              <li class="list-group-item">
+                <span class="badge">NRS. 1000</span>
+                  <%= file.productSize %> Size | <%= file.productQuantity %> Units
+              </li>
+          </ul>
+        </div>
+        <div class="panel-footer">
+        
+        
+        <strong>Notes: <%= file.notes %> </strong><br>
+        <strong>Delivery Address: <%= file.deliveryAddress %></strong><br>
+        <strong>Associated contact: <%= file.contact %> </strong><br>
+        <strong>Associated email: <%= file.email %> </strong><br>
+        </div>
+        </div>
+        <div class = "col-sm-3 col-md-3 col-lg-3">
+        
+          <img src="/uploads/<%= file.image %>" width="200" height="100%">
+        </div>
+        </div>
+      </div>
+    <% }) %>
 
 
-</div>
+
+
+
+
+<hr>
+  <div class="page-header text-center">
+        <h1><span class="fa fa-anchor"></span> Pre-designed Orders</h1>
+    </div>
+    <% directorder.forEach(function(order,i){ %>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <ul class="list-group">
+            <% order.items.forEach(function(ordered,i){ %>
+              <li class="list-group-item">
+                <span class="badge">NRS. <%= ordered.price %></span>
+                  <%= ordered.item.title %> | <%= ordered.qty %> Units
+              </li>
+            <% }) %>
+          </ul>
+        </div>
+        <div class="panel-footer">
+        <strong>Total Price: NRS. <%= order.cart.totalPrice %></strong><br>
+        <strong>Delivery Address: <%= order.address %></strong><br>
+        <strong>Associated contact: <%= order.contact %> </strong><br>
+        </div>
+      </div>
+    <% }) %>
+
+
+
 
 
 </div>

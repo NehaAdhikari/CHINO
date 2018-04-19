@@ -96,6 +96,7 @@ module.exports = function(app, passport) {
       var errMsg = req.flash('error')[0];
       res.render('checkout.ejs', {
         total: cart.totalPrice,
+
         errMsg: errMsg,
         noError: !errMsg
       });
@@ -157,11 +158,21 @@ module.exports = function(app, passport) {
 
             // mongoose operations are asynchronous, so you need to wait 
         reqProduct.find({userID : req.params.id}, function(err, data) {
+        Order.find({user : req.params.id}, function(err, orderdata) {
+            var cart;
+            orderdata.forEach(function(order) {
+            cart =  new Cart(order.cart);
+            order.items = cart.generateArray();
+            });
         // note that data is an array of objects, not a single object!
         res.render('orderedList.ejs', {
             user : req.user,
-            reqproduct: data
+            reqproduct: data,
+            directorder: orderdata,
+            /* orderitems : cart.generateArray()*/
         });
+    });
+        // note that data is an array of objects, not a single object
     });
     });
 

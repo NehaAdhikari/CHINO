@@ -1,6 +1,9 @@
 
 <% include ./partials/header %>
-
+<div class="container w3-light-grey" id="home">
+  <div class="page-header text-center">
+  <h3 class="w3-center">OUR PRODUCTS</h3>
+  </div>
   <% products.forEach(function(product,i){ %>
       <div class="row">
          <% product.forEach(function(product,i){ %>
@@ -11,7 +14,7 @@
                         <h3><%= product.title %></h3>
                         <p class="description"><%= product.description %></p>
                         <div class="clearfix">
-                            <div class="price pull-left">R$<%= product.price %></div>
+                            <div class="price pull-left">NRS. <%= product.price %></div>
                             <a href="/add-to-cart/<%= product._id %>" class="btn btn-success pull-right" role="button">Add to cart</a>
                         </div>
                     </div>
@@ -20,150 +23,8 @@
           <% }) %>
               </div>
   <% }) %>
-
-<div class="container w3-light-grey" id="home">
-  <div class="page-header text-center">
-  <h3 class="w3-center">OUR PRODUCTS</h3>
-  </div>
-  
-  <p class="w3-center w3-large"></p>
-  <div class="w3-row-padding w3-grayscale" style="margin-top:64px">
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-card">
-        <img src="/images/hghouse.jpg" alt="John" style="width:100%">
-        <div class="w3-container">
-          <h3>Hogworts House</h3>
-          <p class="w3-opacity">Rs. 800</p>
-          <p><button class="w3-button w3-light-grey w3-block">Buy Now</button></p>
-        </div>
-      </div>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-card">
-        <img src="/images/thanks.jpg" alt="Jane" style="width:100%">
-        <div class="w3-container">
-          <h3>Thank You!</h3>
-          <p class="w3-opacity">Rs. 900</p>
-          <p><button class="w3-button w3-light-grey w3-block">Buy Now</button></p>
-        </div>
-      </div>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-card">
-        <img src="/images/tshirt.jpg" alt="Jane" style="width:100%">
-        <div class="w3-container">
-          <h3>Problem</h3>
-          <p class="w3-opacity">Rs. 900</p>
-          <p><button class="w3-button w3-light-grey w3-block">Buy Now</button></p>
-        </div>
-      </div>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-card">
-        <img src="/images/music.jpg" alt="Jane" style="width:100%">
-        <div class="w3-container">
-          <h3>Music</h3>
-          <p class="w3-opacity">Rs. 900</p>
-          <p><button class="w3-button w3-light-grey w3-block">Buy Now</button></p>
-        </div>
-      </div>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-card">
-        <img src="/images/product.png" alt="Jane" style="width:100%">
-        <div class="w3-container">
-          <h3>Music</h3>
-          <p class="w3-opacity">Rs. 900</p>
-          <p><button class="w3-button w3-light-grey w3-block">Buy Now</button></p>
-        </div>
-      </div>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-card">
-        <img src="/images/product1.png" alt="Jane" style="width:100%">
-        <div class="w3-container">
-          <h3>Cartoon</h3>
-          <p class="w3-opacity">Rs. 900</p>
-          <p><button class="w3-button w3-light-grey w3-block">Buy Now</button></p>
-        </div>
-      </div>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-card">
-        <img src="/images/product2.png" alt="Jane" style="width:100%">
-        <div class="w3-container">
-          <h3>Shape of you</h3>
-          <p class="w3-opacity">Rs. 900</p>
-          <p><button class="w3-button w3-light-grey w3-block">Buy Now</button></p>
-        </div>
-      </div>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-card">
-        <img src="/images/product3.png" alt="Jane" style="width:100%">
-        <div class="w3-container">
-          <h3>Mustache</h3>
-          <p class="w3-opacity">Rs. 900</p>
-          <p><button class="w3-button w3-light-grey w3-block">Buy Now</button></p>
-        </div>
-      </div>
-    </div>
-
-
-    <h3 class="w3-center">DESIGNS BY OUR CUSTOMERS</h3>
-     <p class="w3-center w3-large"></p>
-       <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-card">
-        <img src="/images/music.jpg" alt="Jane" style="width:100%">
-        <div class="w3-container">
-          <h3>Music</h3>
-          <p class="w3-opacity">Rs. 900</p>
-          <p><button class="w3-button w3-light-grey w3-block">Buy Now</button></p>
-        </div>
-      </div>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-card">
-        <img src="/images/product.png" alt="Jane" style="width:100%">
-        <div class="w3-container">
-          <h3>Music</h3>
-          <p class="w3-opacity">Rs. 900</p>
-          <p><button class="w3-button w3-light-grey w3-block">Buy Now</button></p>
-        </div>
-      </div>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-card">
-        <img src="/images/product1.png" alt="Jane" style="width:100%">
-        <div class="w3-container">
-          <h3>Cartoon</h3>
-          <p class="w3-opacity">Rs. 900</p>
-          <p><button class="w3-button w3-light-grey w3-block">Buy Now</button></p>
-        </div>
-      </div>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-card">
-        <img src="/images/product2.png" alt="Jane" style="width:100%">
-        <div class="w3-container">
-          <h3>Shape of you</h3>
-          <p class="w3-opacity">Rs. 900</p>
-          <p><button class="w3-button w3-light-grey w3-block">Buy Now</button></p>
-        </div>
-      </div>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-card">
-        <img src="/images/product3.png" alt="Jane" style="width:100%">
-        <div class="w3-container">
-          <h3>Mustache</h3>
-          <p class="w3-opacity">Rs. 900</p>
-          <p><button class="w3-button w3-light-grey w3-block">Buy Now</button></p>
-        </div>
-      </div>
-    </div>
-   
-  </div>
 </div>
+
+
 
 <% include ./partials/footer %>

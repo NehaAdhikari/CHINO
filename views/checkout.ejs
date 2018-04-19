@@ -3,10 +3,11 @@
 
 
         <h1>Checkout</h1>
-        <h4>Total: R$<%= total %></h4>
+        <h4>Total: NRS. <%= total %></h4>
 
 
         <form action="/checkout" method="post" id="checkout-form">
+        
 
             <div class="row">
                 <div class="col-xs-12">
@@ -17,7 +18,7 @@
                 </div>
                 <div class="col-xs-12">
                     <div class="form-group">
-                        <label for="address">Address</label>
+                        <label for="address">Delivery Address</label>
                         <input type="text" id="address" class="form-control" required name="address">
                     </div>
                 </div>

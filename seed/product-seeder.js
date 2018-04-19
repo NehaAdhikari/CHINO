@@ -4,7 +4,49 @@ var mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/chinoeasyauth');
 var products = [
-  new Product({
+    new Product({
+    imagePath: '/images/hghouse.jpg',
+    title: 'Hogwarts House',
+    description: 'Customized shirt with sorting hat figure.',
+    price: 800
+  }),
+    new Product({
+    imagePath: '/images/thanks.jpg',
+    title: 'Thank You!',
+    description: 'Customized shirt with sorting hat figure.',
+    price: 750
+  }),
+    new Product({
+    imagePath: '/images/tshirt.jpg',
+    title: 'Problem',
+    description: 'You have got a problem.',
+    price: 750
+  }),
+    new Product({
+    imagePath: '/images/music.jpg',
+    title: 'Music',
+    description: 'For the soul who loves music.',
+    price: 800
+  }),
+    new Product({
+    imagePath: '/images/product1.png',
+    title: 'Cartoon',
+    description: 'Customized shirt with sorting hat figure.',
+    price: 950
+  }),
+    new Product({
+    imagePath: '/images/product2.png',
+    title: 'Shape of You',
+    description: 'I am in love with the shape of you',
+    price: 750
+  }),
+    new Product({
+    imagePath: '/images/product3.png',
+    title: 'Mustache',
+    description: 'Flaunt your mustache.',
+    price: 800
+  })
+/*  new Product({
     imagePath: 'https://images-submarino.b2w.io/produtos/01/00/sku/10633/1/10633182_1GG.jpg',
     title: 'Jogo Pes 2016 - Ps4',
     description: 'Juntamente Com Todos Os Novos Recursos Inclusos No Pes 2016, A Série De Futebol Terá Pela Primeira Vez O Sistema De Clima Dinâmico. Essa Nova Implementação Não Apenas Aperfeiçoará Graficamente Os Efeitos De Tempo No Jogo, Mas Também Afetará A Jogabilidade Em Si, Tendo Papel Importante Na Reformulação Do Modo Liga Master E Nas Partidas Off-Line.Além Desta Novidade O Game Apresenta Um Novo Modo De Câmera,Novos Recursos De Comemoração. Título: Pes 16 Plataforma: Ps4 Produtora: Konami Características: Gênero: Esporte Faixa Etária: Livre Jogadores: 1-4 Offline / 2-22 Online Idioma Jogo: Audio Em Português-Br Com Narração De Mauro Beting E Silvio Luis Idioma Manual: Português Sac: 4003-7669 Para Capitais E Regiões Metropolitanas 0800-880-7669 Demais Localidades. Nem Todos Os Recursos Estão Disponíveis Para Todas As Plataformas De Jogo.',
@@ -39,7 +81,7 @@ var products = [
     title: "Game - The Witcher 3: Wild Hunt - PS4",
     description: "The Witcher 3: Wild Hunt é um jogo de RPG em um mundo amplo e dinâmico, não linear e de fantasia sombria baseado em uma história conduzida pelo próprio personagem, pelas escolhas do jogador e com combates estratégicos. O terceiro capítulo desta saga premiada aprimora todos os aspectos da série, com um sistema de combate mais fluido, novos Witcher Senses e Monster Hunting, alquimia aperfeiçoada, sinais mágicos, sistemas de habilidades e muitas outras inovações.",
     price: 99
-  })
+  })*/
 ];
 
 var done = 0;

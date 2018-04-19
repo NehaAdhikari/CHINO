@@ -168,15 +168,24 @@
       <a href="/product" class="w3-bar-item w3-button"><i class="fa fa-th"></i> PRODUCT</a>
       
       <a href="/contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
+      <a href="/shopping-cart" class="w3-bar-item w3-button">
+      <i class="fa fa-shopping-cart" aria-hidden="true"></i> SHOPPING CART
+      <% if (session.cart) { %>
+      <span class="badge"><%= session.cart.totalQty %></span> <% } %>
+      </a>
       <% if (user) { %>
       <a href="/profile" class="w3-bar-item w3-button"><i class="fa fa-user"></i> <%= user.local.username %></a>
       <a href="/indext" class="w3-bar-item w3-button"><i class="fa fa-paint-brush"></i> DESIGN YOURSELF</a>
       <a href="/orderedList/<%= user._id %>" class="w3-bar-item w3-button"><i class="fa fa-paint-brush"></i> YOUR ORDERS</a>
       <a href="/logout" class="w3-bar-item w3-button">LOGOUT</a>
       <% } else { %>
-      <a href="/login" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> LOGIN</a>
-      <a href="/signup" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> REGISTER</a>
+      <a href="/login" class="w3-bar-item w3-button">LOGIN</a>
+      <a href="/signup" class="w3-bar-item w3-button">REGISTER</a>
       <% } %>
+      <% if (user && user.local.username == "admin") { %>
+      <a href="/userview" class="w3-bar-item w3-button"><i class="fa fa-user"></i> View users</a>
+      <% } %>
+
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
@@ -193,8 +202,9 @@
   <a href="/product" onclick="w3_close()" class="w3-bar-item w3-button">PRODUCT</a>
   <a href="/contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
   <% if (user) { %>
-  <a href="/profile" onclick="w3_close()" class="w3-bar-item w3-button"><%= user.local.username %></a>
+  <a href="/profile" onclick="w3_close()" class="w3-bar-item w3-button"><%= user.local.email %></a>
   <a href="/indext" onclick="w3_close()" class="w3-bar-item w3-button">DESIGN YOURSELF</a>
+  <a href="/orderedList/<%= user._id %>" onclick="w3_close()" class="w3-bar-item w3-button">YOUR ORDERS</a>
   <a href="/logout" onclick="w3_close()" class="w3-bar-item w3-button">LOGOUT</a>
   <% } else { %>
   <a href="/login" onclick="w3_close()" class="w3-bar-item w3-button">LOGIN</a>
@@ -259,6 +269,7 @@
 				  <div class="tab-content">
 				     <div class="tab-pane active" id="tab1">
 				     	<div class="well">
+				     		    <a id="download" download="image.png"><button type="button" class="btn btn-warning btn-lg" onClick="download1()">Download your design</button></a>
 <!--					      	<h3>Tee Styles</h3>-->
 <!--						      <p>-->
 						      <!-- 	<select id="">                        
@@ -447,16 +458,22 @@
       <input type="file" name="image">
     </div>
     
-    <button type="submit" name="submit" class="btn btn-default">Submit</button>
+    <button type="submit" name="submit" class="btn-warning btn-md">Submit</button>
   </form>
 
   </div>
 
-    <a href="#" onclick="this.href = $('#shirtDiv img:first').attr('src');" download>Click here to download image</a>
-    <a id="download" download="image.png"><button type="button" onClick="download1()">Download1</button></a>
+<!-- 
+    <a href="#" onclick="this.href = $('#shirtDiv img:first').attr('src');" download>Click here to download image</a> -->
+
 
   </div>
+
   </div>
+    <hr>
+  <hr>
+  <hr>
+  <hr>
 
 		      	<!-- <form action="reqProduct/insert" method="post" onsubmit="return confirm('Are you sure you have got everything right?');">
 		      	<input type="hidden" name="product_name" value="tshirt" id="id">

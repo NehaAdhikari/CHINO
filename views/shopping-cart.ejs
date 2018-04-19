@@ -1,6 +1,6 @@
 <% include ./partials/header %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
+<hr>
 <% if (products) { %>
     <div class="row">
         <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
@@ -9,17 +9,11 @@
                     <li class="list-group-item">
                         <span class="badge"><%= product.qty %></span>
                         <strong><%= product.item.title %></strong>
-                        <span class="label label-success">R$<%= product.price %></span>
+                        <span class="label label-success">NRS. <%= product.price %></span>
 
                         <button type="button" class="btn btn-primary btn-xs"><a href="/reduce/<%= product.item._id %>" >Reduce </a></button> 
                         <button type="button" class="btn btn-primary btn-xs"><a href="/remove/<%= product.item._id %>" >Remove </a></button> 
-                        <div class="btn-group">
-                            <button class="btn btn-primary btn-xs dropdown-toggle" type="button" data-toggle="dropdown">Options <span class="caret"></span></button>
-                            <ul class="dropdown-menu">
-                                <li><a href="/reduce/<%= product.item._id %>" >Reduce one item</a></li>
-                                <li><a href="/remove/<%= product.item._id %>" >Remove item</a></li>
-                            </ul>
-                        </div>
+                        <img src="<%= product.item.imagePath %>" alt="..." height = "70" width = "70" class="img-responsive">
                     </li>
                   <% }) %>
             </ul>
@@ -30,7 +24,6 @@
             <strong>Total: <%= totalPrice %></strong>
         </div>
     </div>
-    <hr>
     <div class="row">
         <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
             <a href="/checkout" type="button" class="btn btn-success">Checkout</a>
@@ -39,9 +32,10 @@
 <% } else { %>
     <div class="row">
         <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-            <h2>Sem itens do carrinho</h2>
+            <h2>No items in cart.</h2>
         </div>
     </div>
 <% } %>
+<hr>
 
 <% include ./partials/footer %>
