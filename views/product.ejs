@@ -1,6 +1,30 @@
 
+
 <% include ./partials/header %>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
 <div class="container w3-light-grey" id="home">
+
+<div class="row">
+    <div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3"  <% if (noMessages) { %>hidden <% } %> >
+    <hr>
+        <div id="success" class="alert alert-success">
+          
+            <%= successMsg %>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3"  <% if (noaddedMsg) { %>hidden <% } %> >
+    <hr>
+        <div id="success" class="alert alert-success">
+          
+            <%= addedMsg %>
+        </div>
+    </div>
+</div>
   <div class="page-header text-center">
   <h3 class="w3-center">OUR PRODUCTS</h3>
   </div>
@@ -14,7 +38,7 @@
                         <h3><%= product.title %></h3>
                         <p class="description"><%= product.description %></p>
                         <div class="clearfix">
-                            <div class="price pull-left">NRS. <%= product.price %></div>
+                            <div class="price pull-left"><strong>NRS. <%= product.price %></strong></div>
                             <a href="/add-to-cart/<%= product._id %>" class="btn btn-success pull-right" role="button">Add to cart</a>
                         </div>
                     </div>

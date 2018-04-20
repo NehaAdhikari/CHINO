@@ -63,6 +63,17 @@
     padding-top: 10px !important;
     padding-bottom: 0px !important;
     }
+
+    .navbar-brand
+{
+    margin: 0;
+    padding: 0;
+{
+
+.navbar-brand img
+{
+    max-height: 100%;
+}
     </style>
 </head>
 
@@ -71,7 +82,7 @@
     <!-- Navbar (sit on top) -->
 <div class="w3-top">
   <div class="w3-bar w3-white w3-card" id="myNavbar">
-    <a href="#home" class="w3-bar-item w3-button w3-wide">CHINO</a>
+    <a href="/" class="w3-bar-item w3-button w3-wide w3-padding-small"><img src="/images/logo.png" alt="logo" style="width: 80px" ></a>
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small">
       <a href="/about" class="w3-bar-item w3-button"> ABOUT US</a>
@@ -83,9 +94,10 @@
       <% if (session.cart) { %>
       <span class="badge"><%= session.cart.totalQty %></span> <% } %>
       </a>
+      <a href="/indext" class="w3-bar-item w3-button"><i class="fa fa-paint-brush"></i> DESIGN YOURSELF</a>
       <% if (user) { %>
       <a href="/profile" class="w3-bar-item w3-button"><i class="fa fa-user"></i> <%= user.local.username %></a>
-      <a href="/indext" class="w3-bar-item w3-button"><i class="fa fa-paint-brush"></i> DESIGN YOURSELF</a>
+      
       <a href="/orderedList/<%= user._id %>" class="w3-bar-item w3-button"><i class="fa fa-paint-brush"></i> YOUR ORDERS</a>
       <a href="/logout" class="w3-bar-item w3-button">LOGOUT</a>
       <% } else { %>

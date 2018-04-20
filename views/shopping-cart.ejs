@@ -7,13 +7,14 @@
             <ul class="list-group">
                   <% products.forEach(function(product,i){ %>
                     <li class="list-group-item">
+                        <span><img src="<%= product.item.imagePath %>" alt="..." height = "70" width = "70" class="img-responsive"></span>
                         <span class="badge"><%= product.qty %></span>
                         <strong><%= product.item.title %></strong>
                         <span class="label label-success">NRS. <%= product.price %></span>
 
-                        <button type="button" class="btn btn-primary btn-xs"><a href="/reduce/<%= product.item._id %>" >Reduce </a></button> 
-                        <button type="button" class="btn btn-primary btn-xs"><a href="/remove/<%= product.item._id %>" >Remove </a></button> 
-                        <img src="<%= product.item.imagePath %>" alt="..." height = "70" width = "70" class="img-responsive">
+                        <button type="button" class="btn btn-primary btn-xs"><a href="/reduce/<%= product.item._id %>" >Reduce Item </a></button> 
+                        <button type="button" class="btn btn-primary btn-xs"><a href="/remove/<%= product.item._id %>" >Remove Item</a></button> 
+                        
                     </li>
                   <% }) %>
             </ul>

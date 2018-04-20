@@ -25,6 +25,7 @@ module.exports = function(app, passport) {
 
     app.get('/product', function(req, res) {
     var successMsg = req.flash('success')[0];
+    var addedMsg = req.flash('addedtocart')[0];
     Product.find(function(err, docs) {
     var productChunks = [];
     var chunkSize = 3;
@@ -32,8 +33,11 @@ module.exports = function(app, passport) {
       productChunks.push(docs.slice(i, i + chunkSize));
     }
         res.render('product.ejs',{
+            title: 'Products',
             user : req.user,
             products: productChunks,
+            addedMsg: addedMsg,
+            noaddedMsg: !addedMsg,
             successMsg: successMsg,
             noMessages: !successMsg
         });
@@ -51,6 +55,7 @@ module.exports = function(app, passport) {
         }
         cart.add(product, product.id);
         req.session.cart = cart;
+        req.flash('addedtocart', 'Added to cart.');
         res.redirect('/product');
       });
     });
@@ -96,7 +101,7 @@ module.exports = function(app, passport) {
       var errMsg = req.flash('error')[0];
       res.render('checkout.ejs', {
         total: cart.totalPrice,
-
+        user: req.user,
         errMsg: errMsg,
         noError: !errMsg
       });
@@ -119,9 +124,9 @@ module.exports = function(app, passport) {
 
         });
         order.save(function(err, result) {
-          req.flash('success', 'Checkout has been made!');
+          req.flash('success', 'Successfully bought the product.');
           req.session.cart = null;
-          res.redirect('/');
+          res.redirect('/product');
         });
 
     });

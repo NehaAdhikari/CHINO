@@ -152,6 +152,44 @@
 	.Plaster{font-family:"Plaster";}
 	.Engagement{font-family:"Engagement";}
 
+	div.scrolling {
+    background-color: lightblue;
+    height: 500px;
+    overflow: visible;
+}
+
+#custom-search-input{
+    padding: 3px;
+    border: solid 1px #E4E4E4;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+#custom-search-input input{
+    border: 0;
+    box-shadow: none;
+}
+
+#custom-search-input button{
+    margin: 2px 0 0 0;
+    background: none;
+    box-shadow: none;
+    border: 0;
+    color: #666666;
+    padding: 0 8px 0 10px;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input button:hover{
+    border: 0;
+    box-shadow: none;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input .glyphicon-search{
+    font-size: 23px;
+}
+
 	 </style>
   </head>
 
@@ -161,7 +199,7 @@
   	<!-- Navbar (sit on top) -->
 <div class="w3-top">
   <div class="w3-bar w3-white w3-card" id="myNavbar">
-    <a href="#home" class="w3-bar-item w3-button w3-wide">CHINO</a>
+    <a href="/" class="w3-bar-item w3-button w3-wide w3-padding-small"><img src="/images/logo.png" alt="logo" style="width: 80px"></a>
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small">
       <a href="/about" class="w3-bar-item w3-button"> ABOUT US</a>
@@ -213,37 +251,7 @@
   
 </nav>
 
- <!--  <nav class="navbar navbar-fixed-top" role="navigation">
- <div class="container">
-    <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> 
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-    </button>
-        <a class="navbar-brand" href="#" style="color: white; margin-bottom:5px"><img src="/images/chinofinal.png" width="90" height="40"></a>
-    </div>
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="margin-left:50%">
-                <ul class="nav navbar-nav">
-                 <li>
-                        <a href="home" style="color:white">Home</a>
-                    </li>
-                    <li>
-                        <a href="about" style="color:white">About us</a>
-                    </li>
-                     <li>
-                        <a href="indext" style="color:white">Design Yourself</a>
-                    </li>
-                    <li>
-                        <a href="product" style="color:white">Products</a>
-                    </li>
-                    <li>
-                        <a href="contact" style="color:white">Contact us</a>
-                    </li>
-                </ul>
-    </div>
-</nav> -->
+ 
 
 
   
@@ -252,65 +260,57 @@
     <div class="container">
 		<section id="typography">
 		  <div class="page-header">
-		    <h1 style="color: #7F5454">Design your own T-shirt</h1>
-		    <h3 style="color: #800000"><p><i>"Unleash your creativity. Design the way you want"</i></p><h3>
+		    <h1 style="color: #000000">Design your own T-shirt</h1>
+		    <h3 style="color: #000000"><p><i>"Unleash your creativity. Design the way you want"</i></p><h3>
+		    	  	<a id="download" download="image.png"><button type="button" class="btn btn-success center" onClick="download1()">Download your design</button></a>
+						
 		  </div>
 		
 		  <!-- Headings & Paragraph Copy -->
 		  <div class="row">			
-		    <div class="col-lg-3">
+		    <div class="col-lg-3 col-md-3 col-sm-3">
+
 		    	
 		    	<div class="tabbable"> <!-- Only required for left/right tabs -->
 				  <ul class="nav nav-tabs">
 				  <li class= "active" style="color: black"><a  href="#tab1" data-toggle="tab">Select T-shirt options</a></li>
-				  	<!-- <li><a href="#tab1" data-toggle="tab">Color</a></li>	 -->			    
+				  			    
 				    <li><a href="#tab2" data-toggle="tab">Cliparts</a></li>
 				  </ul>
 				  <div class="tab-content">
 				     <div class="tab-pane active" id="tab1">
 				     	<div class="well">
-				     		    <a id="download" download="image.png"><button type="button" class="btn btn-warning btn-lg" onClick="download1()">Download your design</button></a>
-<!--					      	<h3>Tee Styles</h3>-->
-<!--						      <p>-->
-						      <!-- 	<select id="">                        
-				                    <option value="1" selected="selected">Short Sleeve Shirts</option>
-				                    <option value="2">Long Sleeve Shirts</option>                                        
-				                    <option value="3">Hoodies</option>                    
-				                    <option value="4">Tank tops</option>
-								</select> -->				
-<!--						      </p>-->								
-					      </div>
-					      <div class="well">
+				     		    
+					<strong>Select T-shirt color</strong>
 							<ul>
 								<li class="color-preview" title="White" style="background-color:#ffffff;"></li>
-								<!-- <li class="color-preview" title="Dark Heather" style="background-color:#616161;"></li> -->
-								<!-- <li class="color-preview" title="Gray" style="background-color:#f0f0f0;"></li> -->
+
 								<li class="color-preview" title="Charcoal" style="background-color:#5b5b5b;"></li>
 								<li class="color-preview" title="Black" style="background-color:#222222;"></li>
-								<!-- <li class="color-preview" title="Heather Orange" style="background-color:#fc8d74;"></li>
-								<li class="color-preview" title="Heather Dark Chocolate" style="background-color:#432d26;"></li>
-								<li class="color-preview" title="Salmon" style="background-color:#eead91;"></li>
-								<li class="color-preview" title="Chesnut" style="background-color:#806355;"></li>
-								<li class="color-preview" title="Dark Chocolate" style="background-color:#382d21;"></li>
-								<li class="color-preview" title="Citrus Yellow" style="background-color:#faef93;"></li>
-								<li class="color-preview" title="Avocado" style="background-color:#aeba5e;"></li>
-								<li class="color-preview" title="Kiwi" style="background-color:#8aa140;"></li>
-								<li class="color-preview" title="Irish Green" style="background-color:#1f6522;"></li>
-								<li class="color-preview" title="Scrub Green" style="background-color:#13afa2;"></li>
-								<li class="color-preview" title="Teal Ice" style="background-color:#b8d5d7;"></li>
-								<li class="color-preview" title="Heather Sapphire" style="background-color:#15aeda;"></li>
-								<li class="color-preview" title="Sky" style="background-color:#a5def8;"></li>
-								<li class="color-preview" title="Antique Sapphire" style="background-color:#0f77c0;"></li> -->
+
 								<li class="color-preview" title="Heather Navy" style="background-color:#3469b7;"></li>							
 								<li class="color-preview" title="Cherry Red" style="background-color:#c50404;"></li>
 							</ul>
 						</div>	
-						 <div class="input-append">
+						<div id="custom-search-input">
+						<div class="input-group">
+							  <input type="text" class="form-control input-lg" id="text-string" placeholder="Text to be inserted..." />
+                    <span class="input-group-btn">
+                        <button id="add-text" class="btn btn-info btn-lg" type="button">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
+						</div>
+						</div>	
+					<!-- 	
+						<div class="input-append">
+
 							  <input class="span2 form-control input-lg" id="text-string" type="text" placeholder="Text to be inserted">
 
 							  <button id="add-text" class="btn btn-link"" title="Add text"><i class="icon-share-alt"></i></button>
 							  <hr>
-							</div> 	      
+						</div> --> 
+						      
 				     </div>				   
 				    <div class="tab-pane active" id="tab2">
 				    	<div class="well">
@@ -325,6 +325,14 @@
 								<img style="cursor:pointer;" class="img-polaroid" src="/images/smile.png">
 								<img style="cursor:pointer;" class="img-polaroid" src="/images/music-headphones.png"
 								>
+								<img style="cursor:pointer;" class="img-polaroid" src="/images/war.png">
+								<img style="cursor:pointer;" class="img-polaroid" src="/images/wonderwoman.png">
+								<img style="cursor:pointer;" class="img-polaroid" src="/images/viking.png">
+								<img style="cursor:pointer;" class="img-polaroid" src="/images/justin.png">
+								<img style="cursor:pointer;" class="img-polaroid" src="/images/joker.png">
+								<img style="cursor:pointer;" class="img-polaroid" src="/images/silhoute.png">
+								<img style="cursor:pointer;" class="img-polaroid" src="/images/chelsea.png">
+								<img style="cursor:pointer;" class="img-polaroid" src="/images/goku.png">
 				              
 							</div>				    		
 				    	</div>				      
@@ -332,7 +340,7 @@
 				  </div>
 				</div>				
 		    </div>		
-		    <div class="col-lg-6">		    
+		    <div class="col-lg-6 col-md-6 col-sm-6">		    
 		    		<div align="center" style="min-height: 32px;">
 		    			<div class="clearfix">
 							<div class="btn-group inline pull-left" id="texteditor" style="display:none">						  
@@ -393,17 +401,13 @@
 				<!--	/EDITOR		-->
 		    </div>
 		
-		    <div class="col-lg-3">
-		    <table class="table">
-		    <tr class="active">
-		    	<th>Price per unit:</th>
-		    	<th>Rs. 1000</th>
-		    </tr>
-		    </table>
+		    <div class="col-lg-3 col-sm-3 col-md-3">
+	
 		    <div class="div1">	
 		    <div class="panel panel-default">
-		      <div class="panel-heading">Options</div>
+		      <div class="panel-heading"><strong>Options</strong></div>
 		      <div class="panel-body">
+		      	<strong>Price per unit: NRS. 1000 </strong>
 
 
 	<form action="reqProduct/insert" enctype="multipart/form-data" method="post" onsubmit="return confirm('Are you sure you have got everything right?');">
@@ -424,15 +428,16 @@
 			    </label>
 
     </div>
+    <% if (user) { %>
     <div class="form-group">
       <label for="product_quantity">Quantity:</label>
       <input type="number" class="form-control" id="quantity" placeholder="Enter quantity" name="productQuantity">
     </div>
-    <% if (user) { %>
+    
       <div class="form-group">
       <input type="hidden" class="form-control" id="userID" name = "userID" value="<%= user._id %>">
     </div>
-    <% } %>
+    
     <div class="form-group">
       <input type="hidden" class="form-control" id="userDesign" name = "userDesign" value="google.png">
     </div>
@@ -459,6 +464,11 @@
     </div>
     
     <button type="submit" name="submit" class="btn-warning btn-md">Submit</button>
+    <% } else { %>
+    <strong>Please Login to send us your design</strong>
+<a href="/login" class="btn btn-success">Login</a>
+      <a href="/signup" class="btn btn-success">Register</a>
+    <% } %>
   </form>
 
   </div>
