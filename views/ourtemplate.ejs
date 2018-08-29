@@ -1,0 +1,354 @@
+<% include ./partials/header %>
+
+<div class="container">
+<div class="row">
+
+  <div class="col-sm-4 col-md-4">
+
+    <div style="margin-top: 30%;
+    max-width: 500px;
+    padding: 10px 20px;
+    background: #f4f7f8;
+    padding: 20px;
+    background: #f4f7f8;
+    border-radius: 8px;
+    font-family: 'Roboto', sans-serif;">
+
+    <label for="Text1" style="font-family:'Roboto'; color: black;">PERSONALIZATION LINE 1</label>
+    <input type="text" id="Text1" oninput="oninputChange()" maxlength="15" placeholder="I.e. Matthew Key (max. 15)"
+    style="font-family: 'Roboto', sans-serif;
+    background: rgba(255,255,255,.1);
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    margin: 0;
+    outline: 0;
+    padding: 7px;
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    background-color: #e8eeef;
+    color:#4E4E6F;
+    -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+    margin-bottom: 30px;">
+
+    <label for="Text2" style="font-family:'Roboto'; color: black;">PERSONALIZATION LINE 2</label>
+    <input type="text" id="Text2" oninput="oninputChange()" maxlength="10" placeholder="I.e. Since 1990 (max. 10)"
+    style="font-family: 'Roboto', sans-serif;
+    background: rgba(255,255,255,.1);
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    margin: 0;
+    outline: 0;
+    padding: 7px;
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    background-color: #e8eeef;
+    color:#4E4E6F;
+    -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+    margin-bottom: 30px;">
+
+    <label for="Tshirt" style="font-family: 'Roboto', sans-serif; color: black;">T-SHIRT COLOR</label>
+    <select id="Tshirt" onchange="changeTshirt()" style="font-family: 'Roboto', sans-serif;
+  background: rgba(255,255,255,.1);
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  margin: 0;
+  outline: 0;
+  padding: 7px;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  background-color: #e8eeef;
+  color:#4E4E6F;
+  -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  margin-bottom: 30px;
+  -webkit-appearance: menulist-button;
+  height:35px;">
+      <option value="Purple" selected="selected">Purple</option>
+      <option value="Grey">Grey</option>
+      <option value="Royal">Royal Blue</option>
+      <option value="Teal">Teal</option>
+    </select>
+
+
+    <label for="Style" style="font-family: 'Roboto', sans-serif; color: black;">PRINT STYLE</label>
+    <select id="Style" onchange="changeStyle()" style="font-family: 'Roboto', sans-serif;
+  background: rgba(255,255,255,.1);
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  margin: 0;
+  outline: 0;
+  padding: 7px;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  background-color: #e8eeef;
+  color:#4E4E6F;
+  -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  margin-bottom: 30px;
+  -webkit-appearance: menulist-button;
+  height:35px;">
+      <option value="Boat" selected="selected">At the Sea</option>
+      <option value="Basket">Basketball</option>
+      <option value="Woods">Into de Woods</option>
+      <option value="Arrow">Arrowhead</option>
+    </select>
+
+    <label for="Color" style="font-family: 'Roboto', sans-serif; color: black;">PRINT COLOR</label>
+    <select id="Color" onchange="changeColor()" style="font-family: 'Roboto', sans-serif;
+  background: rgba(255,255,255,.1);
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  margin: 0;
+  outline: 0;
+  padding: 7px;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  background-color: #e8eeef;
+  color:#4E4E6F;
+  -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  margin-bottom: 30px;
+  -webkit-appearance: menulist-button;
+  height:35px;">
+      <option value="White" selected="selected">White</option>
+      <option value="Black">Black</option>
+      <option value="Multi">Multi Color</option>
+    </select>
+
+
+    </div>
+  </div>
+<div class="col-sm-8 col-md-8" align="center">
+
+    <div id="fabric-container">
+      <canvas id="preview-canvas" style="cursor: not-allowed; pointer-events: none; margin-top: 5%;">
+    </div>
+
+  </div>
+</div>
+</div>
+
+
+<script src="https://app.customily.com/customily.js"></script>
+<script>
+
+    engraver.init('preview-canvas');
+    engraver.setProduct('f6420486-53a5-4cf5-aa0f-a69f1f15be3b').then(function() {
+      engraver.setImage(1, "https://i.imgur.com/jJgnfDe.png").then(function(){
+      engraver.setImage(2, "https://i.imgur.com/oFISXn8.png").then(function(){
+      engraver.setText(3, "Mathew Key");
+      engraver.setText(4, "Sailing since 1990");
+         });
+       });
+    });
+
+       function changeStyle(){
+         var elementStyle = document.getElementById("Style");
+         var style = elementStyle.options[elementStyle.selectedIndex].value;
+
+         if (style == "Boat"){
+             engraver.setProduct('f6420486-53a5-4cf5-aa0f-a69f1f15be3b').then(function() {
+          changeTshirt()
+          oninputChange();
+             });
+           }
+         if (style == "Basket"){
+             engraver.setProduct('5a1cde32-1e1f-4e9d-90ad-fa6cf45635e4').then(function() {
+          changeTshirt()
+          oninputChange();
+             });
+
+           }
+
+         if (style == "Woods"){
+             engraver.setProduct('88097a7b-1311-4629-9658-82dd01b5f767').then(function() {
+          changeTshirt()
+          oninputChange();
+             });
+           }
+
+         if (style == "Arrow"){
+             engraver.setProduct('4b64fd25-10bb-4250-a8a8-3dbd4212d557').then(function() {
+          changeTshirt()
+          oninputChange();
+             });
+           }
+       }
+
+       function changeTshirt(){
+         var elementTshirt = document.getElementById("Tshirt");
+         var tshirt = elementTshirt.options[elementTshirt.selectedIndex].value;
+
+                 if (tshirt == "Purple"){
+                   engraver.setImage(1, "https://i.imgur.com/jJgnfDe.png").then(function(){
+                  });
+                 }
+
+                 if (tshirt == "Grey"){
+                   engraver.setImage(1, "https://i.imgur.com/tmRpjEj.png").then(function(){
+                  });
+                 }
+
+                 if (tshirt == "Royal"){
+                   engraver.setImage(1, "https://i.imgur.com/ezutD91.png").then(function(){
+                  });
+                 }
+
+                 if (tshirt == "Teal"){
+                   engraver.setImage(1, "https://i.imgur.com/NoxGlXb.png").then(function(){
+                  });
+                 }
+         }
+
+         function changeColor(){
+          oninputChange();
+           }
+
+        function oninputChange(){
+          var elementNameScript = document.getElementById("Text1");
+          var textScript = elementNameScript.value;
+          var elementNameScript2 = document.getElementById("Text2");
+          var textScript1 = elementNameScript2.value;
+          var elementColor = document.getElementById("Color");
+          var color = elementColor.options[elementColor.selectedIndex].value;
+          var elementStyle = document.getElementById("Style");
+          var style = elementStyle.options[elementStyle.selectedIndex].value;
+
+          if (style == "Boat"){
+            if (color == "White"){
+              clearAllTexts();
+              engraver.setText(3,elementNameScript.value);
+              engraver.setText(4,elementNameScript2.value);
+              engraver.setImage(2,"https://i.imgur.com/oFISXn8.png").then(function(){
+                engraver.clearSelection();
+             });
+            }
+
+            if (color == "Black"){
+              clearAllTexts();
+              engraver.setText(5,elementNameScript.value);
+              engraver.setText(6,elementNameScript2.value);
+              engraver.setImage(2,"https://i.imgur.com/brKD1GS.png").then(function(){
+                engraver.clearSelection();
+             });
+            }
+
+            if (color == "Multi"){
+              clearAllTexts();
+              engraver.setText(7,elementNameScript.value);
+              engraver.setText(8,elementNameScript2.value);
+              engraver.setImage(2,"https://i.imgur.com/CFFpMGW.png").then(function(){
+                engraver.clearSelection();
+             });
+            }
+          }
+
+          if (style == "Basket"){
+            if (color == "White"){
+              clearAllTexts();
+              engraver.setText(3,elementNameScript.value);
+              engraver.setText(4,elementNameScript2.value);
+              engraver.setImage(2,"https://i.imgur.com/8NIBOsM.png").then(function(){
+                engraver.clearSelection();
+             });
+            }
+            if (color == "Black"){
+              clearAllTexts();
+            engraver.setText(5,elementNameScript.value);
+            engraver.setText(6,elementNameScript2.value);
+            engraver.setImage(2,"https://i.imgur.com/N6hCcCy.png").then(function(){
+              engraver.clearSelection();
+           });
+            }
+            if (color == "Multi"){
+              clearAllTexts();
+            engraver.setText(7,elementNameScript.value);
+            engraver.setText(8,elementNameScript2.value);
+            engraver.setImage(2,"https://i.imgur.com/sZcDpnm.png").then(function(){
+              engraver.clearSelection();
+           });
+            }
+          }
+
+          if (style == "Woods"){
+            if (color == "White"){
+              clearAllTexts();
+            engraver.setText(3,elementNameScript.value);
+            engraver.setText(4,elementNameScript2.value);
+            engraver.setImage(2,"https://i.imgur.com/A9C8mWv.png").then(function(){
+              engraver.clearSelection();
+           });
+            }
+            if (color == "Black"){
+              clearAllTexts();
+            engraver.setText(5,elementNameScript.value);
+            engraver.setText(6,elementNameScript2.value);
+            engraver.setImage(2,"https://i.imgur.com/Fg6HBpG.png").then(function(){
+              engraver.clearSelection();
+           });
+            }
+            if (color == "Multi"){
+              clearAllTexts();
+            engraver.setText(7,elementNameScript.value);
+            engraver.setText(8,elementNameScript2.value);
+            engraver.setImage(2,"https://i.imgur.com/1fH2aGq.png").then(function(){
+              engraver.clearSelection();
+           });
+            }
+          }
+
+          if (style == "Arrow"){
+            if (color == "White"){
+              clearAllTexts();
+            engraver.setText(3,elementNameScript.value);
+            engraver.setText(4,elementNameScript2.value);
+            engraver.setImage(2,"https://i.imgur.com/Ob0Xiei.png").then(function(){
+              engraver.clearSelection();
+           });
+            }
+            if (color == "Black"){
+              clearAllTexts();
+            engraver.setText(5,elementNameScript.value);
+            engraver.setText(6,elementNameScript2.value);
+            engraver.setImage(2,"https://i.imgur.com/ppdjJMo.png").then(function(){
+              engraver.clearSelection();
+           });
+            }
+            if (color == "Multi"){
+              clearAllTexts();
+            engraver.setText(7,elementNameScript.value);
+            engraver.setText(8,elementNameScript2.value);
+            engraver.setImage(2,"https://i.imgur.com/QNfXEqC.png").then(function(){
+              engraver.clearSelection();
+           });
+            }
+          }
+        }
+
+        function clearAllTexts(){
+         for (var i=0;i<17;i++){
+           engraver.setText(i,"");
+         }
+        }
+
+
+
+</script>
+ <% include ./partials/footer %>

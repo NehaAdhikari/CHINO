@@ -1,530 +1,317 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-  	<title>CHINO | Precious Souvenir</title>
-    <meta charset="utf-8">
-    <title>Chino-Design your own T-Shirt</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
-    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
-    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-	
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <!--[if IE]><script type="text/javascript" src="js/excanvas.js"></script><![endif]-->
-
-
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>	
-	<script type="text/javascript" src="/javascripts/fabric.js"></script>
-	<script type="text/javascript" src="/javascripts/tshirtEditor.js"></script>
-	<script type="text/javascript" src="/javascripts/jquery.miniColors.min.js"></script>
-	<script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
-	
-    <!-- Le styles -->
-    <link type="text/css" rel="stylesheet" href="/stylesheets/jquery.miniColors.css" />
-    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
-    <link href="/stylesheets/bootstrap-responsive.min.css" rel="stylesheet">
-
-<!--     <script src="/javascripts/html2canvas.js" type="text/javascript"></script>
-<script src="/javascripts/canvas-toBlob.js" type="text/javascript"></script>
-<script src="/javascripts/FileSaver.js" type="text/javascript"></script>
-<script src="/javascripts/jquery.plugin.html2canvas.js" type="text/javascript"></script> -->
-<!-- 
-        <link rel="stylesheet" href="/stylesheets/feedback.css"  type="text/css" media="screen" /> -->
-
-	 <style type="text/css">
-
-	body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
-	body, html {
-	    height: 100%;
-	    line-height: 1.8;
-	    background-color: #F1F1F1;
-	}
-	/* Full height image header */
-	.bgimg-1 {
-	    background-position: center;
-	    background-size: cover;
-	    background-image: url("/images/background.jpeg");
-	    min-height: 100%;
-	}
-	.w3-bar .w3-button {
-	    padding: 16px;
-	}
-
-	.w3-padding-64{
-		padding-top: 10px !important;
-		padding-bottom: 0px !important;
-	}
-
-	.div1 {
-	    width: 300px;
-	    height: 575px;
-	    border: 1px;
-	}
-
-	.thumbnail {
-	  height: 100%;
-	  text-align: center;
-	}
-
-
-	.navbar-static-top .navbar-brand,
-	.navbar-static-top .navbar-brand:hover,
-	.navbar-static-top .navbar-brand:focus {
-	    color: #FFF;
-	}
-
-	.navbar-static-top .navbar-nav > li > a {
-	    color: #FFF;
-	}
-
-	.navbar-static-top .navbar-nav > li > a:hover,
-	.navbar-static-top .navbar-nav > li > a:focus {
-	    background-color: #7F5454;
-	}
-
-	.navbar-static-top .navbar-nav > .active > a,
-	.navbar-static-top .navbar-nav > .active > a:hover,
-	.navbar-static-top .navbar-nav > .active > a:focus {
-	    color: #FFF;
-	    background-color: #7F5454;
-	}
-	.q
-	{
-	  font-size:40px;
-	}
-
-
-			 .footer {
-				padding: 50px 0;
-				margin-top: 70px;
-				border-top: 1px solid #E5E5E5;
-				background-color: #7F5454;
-				}			
-		      body {
-		        padding-top: 60px;	        
-		      }
-		      .color-preview {
-		      	border: 1px solid #CCC;
-		      	margin: 2px;
-		      	zoom: 1;
-		      	vertical-align: top;
-		      	display: inline-block;
-		      	cursor: pointer;
-		      	overflow: hidden;
-		      	width: 20px;
-		      	height: 20px;
-		      }
-		      .rotate {  
-			    -webkit-transform:rotate(90deg);
-			    -moz-transform:rotate(90deg);
-			    -o-transform:rotate(90deg);
-			    /* filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=1.5); */
-			    -ms-transform:rotate(90deg);		   
-			}		
-	.Arial{font-family:"Arial";}
-	.Helvetica{font-family:"Helvetica";}
-	.MyriadPro{font-family:"Myriad Pro";}
-	.Delicious{font-family:"Delicious";}
-	.Verdana{font-family:"Verdana";}
-	.Georgia{font-family:"Georgia";}
-	.Courier{font-family:"Courier";}
-	.ComicSansMS{font-family:"Comic Sans MS";}
-	.Impact{font-family:"Impact";}
-	.Monaco{font-family:"Monaco";}
-	.Optima{font-family:"Optima";}
-	.HoeflerText{font-family:"Hoefler Text";}
-	.Plaster{font-family:"Plaster";}
-	.Engagement{font-family:"Engagement";}
-
-	div.scrolling {
-    background-color: lightblue;
-    height: 500px;
-    overflow: visible;
-}
-
-#custom-search-input{
-    padding: 3px;
-    border: solid 1px #E4E4E4;
-    border-radius: 6px;
-    background-color: #fff;
-}
-
-#custom-search-input input{
-    border: 0;
-    box-shadow: none;
-}
-
-#custom-search-input button{
-    margin: 2px 0 0 0;
-    background: none;
-    box-shadow: none;
-    border: 0;
-    color: #666666;
-    padding: 0 8px 0 10px;
-    border-left: solid 1px #ccc;
-}
-
-#custom-search-input button:hover{
-    border: 0;
-    box-shadow: none;
-    border-left: solid 1px #ccc;
-}
-
-#custom-search-input .glyphicon-search{
-    font-size: 23px;
-}
-
-	 </style>
-  </head>
-
-  <body class="preview" data-spy="scroll" data-target=".subnav" data-offset="80">
-
-
-  	<!-- Navbar (sit on top) -->
-<div class="w3-top">
-  <div class="w3-bar w3-white w3-card" id="myNavbar">
-    <a href="/" class="w3-bar-item w3-button w3-wide w3-padding-small"><img src="/images/logo.png" alt="logo" style="width: 80px"></a>
-    <!-- Right-sided navbar links -->
-    <div class="w3-right w3-hide-small">
-      <a href="/about" class="w3-bar-item w3-button"> ABOUT US</a>
-      <a href="/product" class="w3-bar-item w3-button"><i class="fa fa-th"></i> PRODUCT</a>
-      
-      <a href="/contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
-      <a href="/shopping-cart" class="w3-bar-item w3-button">
-      <i class="fa fa-shopping-cart" aria-hidden="true"></i> SHOPPING CART
-      <% if (session.cart) { %>
-      <span class="badge"><%= session.cart.totalQty %></span> <% } %>
-      </a>
-      <% if (user) { %>
-      <a href="/profile" class="w3-bar-item w3-button"><i class="fa fa-user"></i> <%= user.local.username %></a>
-      <a href="/indext" class="w3-bar-item w3-button"><i class="fa fa-paint-brush"></i> DESIGN YOURSELF</a>
-      <a href="/orderedList/<%= user._id %>" class="w3-bar-item w3-button"><i class="fa fa-paint-brush"></i> YOUR ORDERS</a>
-      <a href="/logout" class="w3-bar-item w3-button">LOGOUT</a>
-      <% } else { %>
-      <a href="/login" class="w3-bar-item w3-button">LOGIN</a>
-      <a href="/signup" class="w3-bar-item w3-button">REGISTER</a>
-      <% } %>
-      <% if (user && user.local.username == "admin") { %>
-      <a href="/userview" class="w3-bar-item w3-button"><i class="fa fa-user"></i> View users</a>
-      <% } %>
-
-    </div>
-    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
-
-    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
-      <i class="fa fa-bars"></i>
-    </a>
-  </div>
-</div>
-
-<!-- Sidebar on small screens when clicking the menu icon -->
-<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
-  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
-  <a href="/about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT US</a>
-  <a href="/product" onclick="w3_close()" class="w3-bar-item w3-button">PRODUCT</a>
-  <a href="/contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
-  <% if (user) { %>
-  <a href="/profile" onclick="w3_close()" class="w3-bar-item w3-button"><%= user.local.email %></a>
-  <a href="/indext" onclick="w3_close()" class="w3-bar-item w3-button">DESIGN YOURSELF</a>
-  <a href="/orderedList/<%= user._id %>" onclick="w3_close()" class="w3-bar-item w3-button">YOUR ORDERS</a>
-  <a href="/logout" onclick="w3_close()" class="w3-bar-item w3-button">LOGOUT</a>
-  <% } else { %>
-  <a href="/login" onclick="w3_close()" class="w3-bar-item w3-button">LOGIN</a>
-  <a href="/signup" onclick="w3_close()" class="w3-bar-item w3-button"> REGISTER</a>
-  <% } %>
-  
-</nav>
-
- 
-
-
-  
-
+<% include ./partials/header %>
 
     <div class="container">
-		<section id="typography">
-		  <div class="page-header">
-		    <h1 style="color: #000000">Design your own T-shirt</h1>
-		    <h3 style="color: #000000"><p><i>"Unleash your creativity. Design the way you want"</i></p><h3>
-		    	  	<a id="download" download="image.png"><button type="button" class="btn btn-success center" onClick="download1()">Download your design</button></a>
-						
-		  </div>
-		
-		  <!-- Headings & Paragraph Copy -->
-		  <div class="row">			
-		    <div class="col-lg-3 col-md-3 col-sm-3">
-
-		    	
-		    	<div class="tabbable"> <!-- Only required for left/right tabs -->
-				  <ul class="nav nav-tabs">
-				  <li class= "active" style="color: black"><a  href="#tab1" data-toggle="tab">Select T-shirt options</a></li>
-				  			    
-				    <li><a href="#tab2" data-toggle="tab">Cliparts</a></li>
-				  </ul>
-				  <div class="tab-content">
-				     <div class="tab-pane active" id="tab1">
-				     	<div class="well">
-				     		    
-					<strong>Select T-shirt color</strong>
-							<ul>
-								<li class="color-preview" title="White" style="background-color:#ffffff;"></li>
-
-								<li class="color-preview" title="Charcoal" style="background-color:#5b5b5b;"></li>
-								<li class="color-preview" title="Black" style="background-color:#222222;"></li>
-
-								<li class="color-preview" title="Heather Navy" style="background-color:#3469b7;"></li>							
-								<li class="color-preview" title="Cherry Red" style="background-color:#c50404;"></li>
-							</ul>
-						</div>	
-						<div id="custom-search-input">
-						<div class="input-group">
-							  <input type="text" class="form-control input-lg" id="text-string" placeholder="Text to be inserted..." />
-                    <span class="input-group-btn">
-                        <button id="add-text" class="btn btn-info btn-lg" type="button">
-                            <i class="glyphicon glyphicon-search"></i>
-                        </button>
-                    </span>
-						</div>
-						</div>	
-					<!-- 	
-						<div class="input-append">
-
-							  <input class="span2 form-control input-lg" id="text-string" type="text" placeholder="Text to be inserted">
-
-							  <button id="add-text" class="btn btn-link"" title="Add text"><i class="icon-share-alt"></i></button>
-							  <hr>
-						</div> --> 
-						      
-				     </div>				   
-				    <div class="tab-pane active" id="tab2">
-				    	<div class="well">
-				    		
-							<div id="avatarlist">
-								<!-- <img style="cursor:pointer;" class="img-polaroid" src="/images/invisibleman.jpg"> -->
-					
-								<img style="cursor:pointer;" class="img-polaroid" src="/images/pikachu.png">
-								<img style="cursor:pointer;" class="img-polaroid" src="/images/harry-potter.png">
-								<img style="cursor:pointer;" class="img-polaroid" src="/images/horse.png">
-								<img style="cursor:pointer;" class="img-polaroid" src="/images/sorting-hat.png">
-								<img style="cursor:pointer;" class="img-polaroid" src="/images/smile.png">
-								<img style="cursor:pointer;" class="img-polaroid" src="/images/music-headphones.png"
-								>
-								<img style="cursor:pointer;" class="img-polaroid" src="/images/war.png">
-								<img style="cursor:pointer;" class="img-polaroid" src="/images/wonderwoman.png">
-								<img style="cursor:pointer;" class="img-polaroid" src="/images/viking.png">
-								<img style="cursor:pointer;" class="img-polaroid" src="/images/justin.png">
-								<img style="cursor:pointer;" class="img-polaroid" src="/images/joker.png">
-								<img style="cursor:pointer;" class="img-polaroid" src="/images/silhoute.png">
-								<img style="cursor:pointer;" class="img-polaroid" src="/images/chelsea.png">
-								<img style="cursor:pointer;" class="img-polaroid" src="/images/goku.png">
-				              
-							</div>				    		
-				    	</div>				      
-				    </div>
-				  </div>
-				</div>				
-		    </div>		
-		    <div class="col-lg-6 col-md-6 col-sm-6">		    
-		    		<div align="center" style="min-height: 32px;">
-		    			<div class="clearfix">
-							<div class="btn-group inline pull-left" id="texteditor" style="display:none">						  
-								<button id="font-family" class="btn dropdown-toggle" data-toggle="dropdown" title="Font Style"><i class="icon-font" style="width:19px;height:19px;"></i></button>		                      
-							    <ul class="dropdown-menu" role="menu" aria-labelledby="font-family-X">
-								    <li><a tabindex="-1" href="#" onclick="setFont('Arial');" class="Arial">Arial</a></li>
-								    <li><a tabindex="-1" href="#" onclick="setFont('Helvetica');" class="Helvetica">Helvetica</a></li>
-								    <li><a tabindex="-1" href="#" onclick="setFont('Myriad Pro');" class="MyriadPro">Myriad Pro</a></li>
-								    <li><a tabindex="-1" href="#" onclick="setFont('Delicious');" class="Delicious">Delicious</a></li>
-								    <li><a tabindex="-1" href="#" onclick="setFont('Verdana');" class="Verdana">Verdana</a></li>
-								    <li><a tabindex="-1" href="#" onclick="setFont('Georgia');" class="Georgia">Georgia</a></li>
-								    <li><a tabindex="-1" href="#" onclick="setFont('Courier');" class="Courier">Courier</a></li>
-								    <li><a tabindex="-1" href="#" onclick="setFont('Comic Sans MS');" class="ComicSansMS">Comic Sans MS</a></li>
-								    <li><a tabindex="-1" href="#" onclick="setFont('Impact');" class="Impact">Impact</a></li>
-								    <li><a tabindex="-1" href="#" onclick="setFont('Monaco');" class="Monaco">Monaco</a></li>
-								    <li><a tabindex="-1" href="#" onclick="setFont('Optima');" class="Optima">Optima</a></li>
-								    <li><a tabindex="-1" href="#" onclick="setFont('Hoefler Text');" class="Hoefler Text">Hoefler Text</a></li>
-								    <li><a tabindex="-1" href="#" onclick="setFont('Plaster');" class="Plaster">Plaster</a></li>
-								    <li><a tabindex="-1" href="#" onclick="setFont('Engagement');" class="Engagement">Engagement</a></li>
-				                </ul>
-							    <button id="text-bold" class="btn" data-original-title="Bold"><img src="/images/font_bold.png" height="" width=""></button>
-							    <button id="text-italic" class="btn" data-original-title="Italic"><img src="/images/font_italic.png" height="" width=""></button>
-							    <button id="text-strike" class="btn" title="Strike" style=""><img src="/images/font_strikethrough.png" height="" width=""></button>
-							 	<button id="text-underline" class="btn" title="Underline" style=""><img src="/images/font_underline.png"></button>
-							 	<a class="btn" href="#" rel="tooltip" data-placement="top" data-original-title="Font Color"><input type="hidden" id="text-fontcolor" class="color-picker" size="7" value="#000000"></a>
-						 		<a class="btn" href="#" rel="tooltip" data-placement="top" data-original-title="Font Border Color"><input type="hidden" id="text-strokecolor" class="color-picker" size="7" value="#000000"></a>
-								  <!--- Background <input type="hidden" id="text-bgcolor" class="color-picker" size="7" value="#ffffff"> -->
-							</div>				
-
-
-
-							<!-- The code that I changed to bring the front and back view..Check properly for mistakes -->			  
-							<div class="pull-right" align="" id="imageeditor" style="display:none">
-							  <div class="btn-group">										      
-							      <button class="btn" id="bring-to-front" title="Bring to Front"><i class="icon-fast-backward rotate" style="height:19px;"></i></button>
-							      <button class="btn" id="send-to-back" title="Send to Back"><i class="icon-fast-forward rotate" style="height:19px;"></i></button>
-							      <button id="flip" type="button" class="btn" title="Show Back View"><i class="icon-retweet" style="height:19px;"></i></button>
-							      <button id="remove-selected" class="btn" title="Delete selected item"><i class="icon-trash" style="height:19px;"></i></button>
-							  </div>
-							</div>			  
-						</div>												
-					</div>		
-  		
-				<!--	EDITOR      -->					
-					<div id="shirtDiv" class="page" style="width: 530px; height: 630px; position: relative; background-color: rgb(255, 255, 255);">
-						<img id="tshirtFacing" src="../images/crew_front.png"></img>
-						<div id="drawingArea" style="position: absolute;top: 100px;left: 160px;z-index: 10;width: 200px;height: 400px;">					
-							<canvas id="tcanvas" width=200 height="400" class="hover" style="-webkit-user-select: none;"></canvas>
-						</div>
-					</div>
-<!--					<div id="shirtBack" class="page" style="width: 530px; height: 630px; position: relative; background-color: rgb(255, 255, 255); display:none;">-->
-<!--						<img src="img/crew_back.png"></img>-->
-<!--						<div id="drawingArea" style="position: absolute;top: 100px;left: 160px;z-index: 10;width: 200px;height: 400px;">					-->
-<!--							<canvas id="backCanvas" width=200 height="400" class="hover" style="-webkit-user-select: none;"></canvas>-->
-<!--						</div>-->
-<!--					</div>						-->
-								
-				<!--	/EDITOR		-->
-		    </div>
-		
-		    <div class="col-lg-3 col-sm-3 col-md-3">
-	
-		    <div class="div1">	
-		    <div class="panel panel-default">
-		      <div class="panel-heading"><strong>Options</strong></div>
-		      <div class="panel-body">
-		      	<strong>Price per unit: NRS. 1000 </strong>
-
-
-	<form action="reqProduct/insert" enctype="multipart/form-data" method="post" onsubmit="return confirm('Are you sure you have got everything right?');">
-	
-    <div id = "formm" class="form-group">
-      <strong>Size:<br></strong>
-				<label class="radio-inline">
-			      <input type="radio" value="S" name="productSize">S
-			    </label>
-			    <label class="radio-inline">
-			      <input type="radio" value="M" name="productSize">M
-			    </label>
-			    <label class="radio-inline">
-			      <input type="radio" value="L" name="productSize">L
-			    </label>
-			    <label class="radio-inline">
-			      <input type="radio" value= "XL" name="productSize">XL
-			    </label>
-
-    </div>
-    <% if (user) { %>
-    <div class="form-group">
-      <label for="product_quantity">Quantity:</label>
-      <input type="number" class="form-control" id="quantity" placeholder="Enter quantity" name="productQuantity">
-    </div>
+    <section id="typography">
+      <div class="page-header">
+        <h1 style="color: #7F5454">Design your own T-shirt</h1>
+        <h3 style="color: #800000"><p><i>"Unleash your creativity. Design the way you want"</i></p><h3>
+      </div>
     
+      <!-- Headings & Paragraph Copy -->
+      <div class="row">     
+        <div class="col-lg-3">
+          
+          <div class="tabbable"> <!-- Only required for left/right tabs -->
+          <ul class="nav nav-tabs">
+          <li class= "active" style="color: black"><a  href="#tab1" data-toggle="tab">Select T-shirt options</a></li>
+            <!-- <li><a href="#tab1" data-toggle="tab">Color</a></li>  -->          
+            <li><a href="#tab2" data-toggle="tab">Text/Cliparts</a></li>
+          </ul>
+          <div class="tab-content">
+             <div class="tab-pane active" id="tab1">
+              <!-- <div class="well"> -->
+<!--                  <h3>Tee Styles</h3>-->
+<!--                  <p>-->
+                  <!--  <select>                        
+                            <option value="1" selected="selected">Short Sleeve Shirts</option>
+                            <option value="2">Long Sleeve Shirts</option>                                        
+                            <option value="3">Hoodies</option>                    
+                            <option value="4">Tank tops</option>
+                </select> -->       
+<!--                  </p>-->               
+                <!-- </div> -->
+                <div class="well">
+              <ul>
+                <li class="color-preview" title="White" style="background-color:#ffffff;"></li>
+                <!-- <li class="color-preview" title="Dark Heather" style="background-color:#616161;"></li> -->
+                <!-- <li class="color-preview" title="Gray" style="background-color:#f0f0f0;"></li> -->
+                <li class="color-preview" title="Charcoal" style="background-color:#5b5b5b;"></li>
+                <li class="color-preview" title="Black" style="background-color:#222222;"></li>
+                <!-- <li class="color-preview" title="Heather Orange" style="background-color:#fc8d74;"></li>
+                <li class="color-preview" title="Heather Dark Chocolate" style="background-color:#432d26;"></li>
+                <li class="color-preview" title="Salmon" style="background-color:#eead91;"></li>
+                <li class="color-preview" title="Chesnut" style="background-color:#806355;"></li>
+                <li class="color-preview" title="Dark Chocolate" style="background-color:#382d21;"></li>
+                <li class="color-preview" title="Citrus Yellow" style="background-color:#faef93;"></li>
+                <li class="color-preview" title="Avocado" style="background-color:#aeba5e;"></li>
+                <li class="color-preview" title="Kiwi" style="background-color:#8aa140;"></li>
+                <li class="color-preview" title="Irish Green" style="background-color:#1f6522;"></li>
+                <li class="color-preview" title="Scrub Green" style="background-color:#13afa2;"></li>
+                <li class="color-preview" title="Teal Ice" style="background-color:#b8d5d7;"></li>
+                <li class="color-preview" title="Heather Sapphire" style="background-color:#15aeda;"></li>
+                <li class="color-preview" title="Sky" style="background-color:#a5def8;"></li>
+                <li class="color-preview" title="Antique Sapphire" style="background-color:#0f77c0;"></li> -->
+                <li class="color-preview" title="Heather Navy" style="background-color:#3469b7;"></li>              
+                <li class="color-preview" title="Cherry Red" style="background-color:#c50404;"></li>
+              </ul>
+            </div>  
+             </div>      
+
+            <div class="tab-pane" id="tab2">
+              <div class="well">
+                <div class="input-append">
+                    <input class="span2 form-control input-lg" id="text-string" type="text" style="height: 50px" placeholder="Text to be inserted">
+
+                    <button id="add-text" class="btn btn-link"" title="Add text"><i class="icon-share-alt"></i></button>
+                    <hr>
+                  </div>        
+                </div>
+
+                <div id="avatarlist" style="height: 300px"> <!-- start of avatarlist -->
+                    <div class="well">
+                      <div class="input-append"> 
+                        <ul>
+                          
+                          <li style="padding: 5px"> 
+                            <img style="cursor:pointer;" class="img-polaroid" id="canvaspicture" src="/images/log.png"> 
+                            <img style="cursor:pointer; margin-left: 5px" class="img-polaroid" id="canvaspicture" src="/images/justin.png"> 
+                          </li>
+                          <li style="padding: 5px"> 
+                            <img style="cursor:pointer;" class="img-polaroid" id="canvaspicture" src="/images/goku.png"> 
+                            <img style="cursor:pointer;margin-left: 5px" class="img-polaroid" id="canvaspicture" src="/images/wonder-woman-1.png"> 
+                          </li>
+                          <li style="padding: 5px"> 
+                            <img style="cursor:pointer;" class="img-polaroid" id="canvaspicture" src="/images/pikachu.png"> 
+                            <img style="cursor:pointer;margin-left: 5px" class="img-polaroid" id="canvaspicture" src="/images/wonderwoman.png"> 
+                          </li>
+                          <li style="padding: 5px"> 
+                            <img style="cursor:pointer;" class="img-polaroid" id="canvaspicture" src="/images/viking.png"> 
+                            <img style="cursor:pointer;margin-left: 5px" class="img-polaroid" id="canvaspicture" src="/images/war.png"> 
+                          </li>
+                          <li style="padding: 5px"> 
+                            <img style="cursor:pointer;" class="img-polaroid" id="canvaspicture" src="/images/silhoute.png"> 
+                            <img style="cursor:pointer;margin-left: 5px" class="img-polaroid" id="canvaspicture" src="/images/chealsea.png"> 
+                          </li>
+                          <li style="padding: 5px"> 
+                            <img style="cursor:pointer;" class="img-polaroid" id="canvaspicture" src="/images/united.png">
+                            <img style="cursor:pointer;margin-left: 5px" class="img-polaroid" id="canvaspicture" src="/images/joker.png"> 
+                          </li>
+                        </ul>
+                      </div> <!-- end of inputappend -->    
+
+                           </div> <!-- end of well -->
+                  </div>  <!-- end of avatarlist -->  
+                 
+             <!--  <div id="avatarlist" style="height: 300px">
+                <div class="well" style="height: 400px"> 
+                   <div class="input-append">
+                    <ul style="height: 50px;">
+                      <li style="padding: 5px"> <img style="cursor:pointer;" class="img-polaroid" src="/images/log.png">
+                      <img style="cursor:pointer;margin-left: 5px" class="img-polaroid" src="/images/goku.png">
+                    </li>
+                      <li style="padding: 5px">
+                       <img style="cursor:pointer;" class="img-polaroid" src="/images/justin.png">
+                      <img style="cursor:pointer;margin-left: 5px" class="img-polaroid" src="/images/wonderwoman.png">
+                    </li>
+                    <li style="padding: 5px">
+                       <img style="cursor:pointer;" class="img-polaroid" src="/images/united.png">
+                        <img style="cursor:pointer;margin-left: 5px" class="img-polaroid" src="/images/viking.png">
+                        </li>
+
+                        <li style="padding: 5px">
+                         <img style="cursor:pointer;" class="img-polaroid" src="/images/war.png">
+                          <img style="cursor:pointer;margin-left: 5px" class="img-polaroid" src="/images/wonder-woman-1.png">
+                        </li>
+                        <li style="padding: 5px">
+                      <img style="cursor:pointer;" class="img-polaroid" src="/images/pikachu.png">
+                      <img style="cursor:pointer;margin-left: 5px" class="img-polaroid" src="/images/silhoute.png">
+                    </li>
+                    <li style="padding: 5px">
+                      <img style="cursor:pointer;" class="img-polaroid" src="/images/united.png">
+                            <img style="cursor:pointer;margin-left: 5px" class="img-polaroid" src="/images/chealsea.png">
+                      </li>
+                      <li style="padding: 5px"> 
+                       <img style="cursor:pointer;" class="img-polaroid" src="/images/joker.png">     
+                           <img style="cursor:pointer;margin-left: 5px" class="img-polaroid" src="/images/smile.png">
+                       </li>   
+                   </ul>      
+                  </div> <!end of append  -->              
+              <!-- </div>  --> <!--  end of well  -->          
+            <!-- </div> --> <!-- end of avatarlist -->
+          </div>
+        </div>        
+        </div>
+      </div>
+
+        <div class="col-lg-6">        
+            <div align="center" style="min-height: 32px;">
+              <div class="clearfix">
+                <!-- The code that I changed to bring the front and back view..Check properly for mistakes -->        
+              <div style="padding-bottom: 15px" id="imageeditor">
+                <div class="btn-group">                         
+                    <button class="btn" id="bring-to-front" title="Bring to Front"><i class="icon-fast-backward rotate" style="height:19px;"></i></button>
+                    <button class="btn" id="send-to-back" title="Send to Back"><i class="icon-fast-forward rotate" style="height:19px;"></i></button>
+                    <button id="flip" type="button" class="btn" title="Show Back View"><i class="icon-retweet" style="height:19px;"></i></button>
+                    <button id="remove-selected" class="btn" title="Delete selected item"><i class="icon-trash" style="height:19px;"></i></button>
+                </div>
+              </div>        
+              <div class="btn-group inline" style="padding-bottom: 15px"  id="texteditor">             
+                <button id="font-family" class="btn dropdown-toggle" data-toggle="dropdown" title="Font Style"><i class="icon-font" style="width:19px;height:19px;"></i></button>                         
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="font-family-X">
+                    <li><a tabindex="-1" href="#" onclick="setFont('Arial');" class="Arial">Arial</a></li>
+                    <li><a tabindex="-1" href="#" onclick="setFont('Helvetica');" class="Helvetica">Helvetica</a></li>
+                    <li><a tabindex="-1" href="#" onclick="setFont('Myriad Pro');" class="MyriadPro">Myriad Pro</a></li>
+                    <li><a tabindex="-1" href="#" onclick="setFont('Delicious');" class="Delicious">Delicious</a></li>
+                    <li><a tabindex="-1" href="#" onclick="setFont('Verdana');" class="Verdana">Verdana</a></li>
+                    <li><a tabindex="-1" href="#" onclick="setFont('Georgia');" class="Georgia">Georgia</a></li>
+                    <li><a tabindex="-1" href="#" onclick="setFont('Courier');" class="Courier">Courier</a></li>
+                    <li><a tabindex="-1" href="#" onclick="setFont('Comic Sans MS');" class="ComicSansMS">Comic Sans MS</a></li>
+                    <li><a tabindex="-1" href="#" onclick="setFont('Impact');" class="Impact">Impact</a></li>
+                    <li><a tabindex="-1" href="#" onclick="setFont('Monaco');" class="Monaco">Monaco</a></li>
+                    <li><a tabindex="-1" href="#" onclick="setFont('Optima');" class="Optima">Optima</a></li>
+                    <li><a tabindex="-1" href="#" onclick="setFont('Hoefler Text');" class="Hoefler Text">Hoefler Text</a></li>
+                    <li><a tabindex="-1" href="#" onclick="setFont('Plaster');" class="Plaster">Plaster</a></li>
+                    <li><a tabindex="-1" href="#" onclick="setFont('Engagement');" class="Engagement">Engagement</a></li>
+                    <li><a tabindex="-1" href="#" onclick="setFont('Harlow Solid Italic');" class="Harlow_Solid_Italic">Harlow Solid Italic</a></li>
+                    <li><a tabindex="-1" href="#" onclick="setFont('Ananda Hastakchyar');" class="Ananda_Hastakchyar">Ananda Hastakchyar</a></li>
+                    <li><a tabindex="-1" href="#" onclick="setFont('Edwardian Script ITC');" class="Edwardian_Script_ITC">Edwardian Script ITC</a></li>
+
+                    <li><a tabindex="-1" href="#" onclick="setFont('AR DARLING');" class="AR_DARLING">AR DARLING
+                    <li><a tabindex="-1" href="#" onclick="setFont('Freestyle Script');" class="Freestyle_Script">Freestyle Script</a></li>
+                    <li><a tabindex="-1" href="#" onclick="setFont('PasaRocks');" class="PasaRocks">PasaRocks</a></li>
+                    <li><a tabindex="-1" href="#" onclick="setFont('French Script MT');" class="French_Script_MT">French Script MT</a></li>
+                    <li><a tabindex="-1" href="#" onclick="setFont('Snap ITC');" class="Snap_ITC">Snap ITC</a></li>
+                    <li><a tabindex="-1" href="#" onclick="setFont('Kristen ITC');" class="Kristen_ITC">Kristen ITC</a></li>
+                    <li><a tabindex="-1" href="#" onclick="setFont('Ananda Fanko');" class="Ananda_Fanko">Ananda Fanko</a></li>
+                    
+                        </ul>
+                  <button id="text-bold" class="btn" data-original-title="Bold"><img src="/images/font_bold.png" height="" width=""></button>
+                  <button id="text-italic" class="btn" data-original-title="Italic"><img src="/images/font_italic.png" height="" width=""></button>
+                  <button id="text-strike" class="btn" title="Strike" style=""><img src="/images/font_strikethrough.png" height="" width=""></button>
+                <button id="text-underline" class="btn" title="Underline" style=""><img src="/images/font_underline.png"></button>
+                <a class="btn" href="#" rel="tooltip" data-placement="top" data-original-title="Font Color"><input type="hidden" id="text-fontcolor" class="color-picker" size="7" value="#000000"></a>
+                <a class="btn" href="#" rel="tooltip" data-placement="top" data-original-title="Font Border Color"><input type="hidden" id="text-strokecolor" class="color-picker" size="7" value="#000000"></a>
+                  <!--- Background <input type="hidden" id="text-bgcolor" class="color-picker" size="7" value="#ffffff"> -->
+              </div>        
+            </div> 
+            <!--  EDITOR      -->         
+              <div id="shirtDiv" class="page" style="width: 530px; height: 630px; position: relative; background-color: rgb(255, 255, 255); position: sticky;">
+                <img id="tshirtFacing" src="../images/crew_front.png"></img>
+                <div id="drawingArea" style="position: absolute;top: 100px;left: 160px;z-index: 10;width: 200px;height: 400px;">          
+                  <canvas id="tcanvas" width="200" height="400" class="hover" style="-webkit-user-select: none;"></canvas>
+                </div>
+              </div>                       
+          </div>    
+      
+        
+<!--          <div id="shirtBack" class="page" style="width: 530px; height: 630px; position: relative; background-color: rgb(255, 255, 255); display:none;">-->
+<!--            <img src="img/crew_back.png"></img>-->
+<!--            <div id="drawingArea" style="position: absolute;top: 100px;left: 160px;z-index: 10;width: 200px;height: 400px;">          -->
+<!--              <canvas id="backCanvas" width=200 height="400" class="hover" style="-webkit-user-select: none;"></canvas>-->
+<!--            </div>-->
+<!--          </div>            -->
+                
+        <!--  /EDITOR   -->
+        </div>
+    
+       
+
+    <% if (user) { %>
+     <div class="col-lg-3">
+     <div style="padding-top:100px">
+       <div class="form-group">
+      <strong> Step 1: Download your design</strong><br>
+      <a id="download" download="image.png"><button type="button" onClick="download1()"  class="w3-button w3-blue w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off" >Download</button></a>
+    </div>
+    <div class="form-group">
+        <strong> Step 2: Confirm your design</strong><br>
+        <button type="button"  class="w3-button w3-green w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off" id="myBtn"> I'm done </button>
+        <div class="modal fade" id="myModal" role="dialog" style="padding-right:50px, height:100px;" >
+            <div class="modal-dialog" style="width: 460px">
+            <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-body" style="height: 370px">
+                       <form action="reqProduct/insert" enctype="multipart/form-data" method="post" onsubmit="return confirm('Are you sure you have got everything right?');">
+         <div class="form-group">
+      <label for="image"><h4> Upload design </h4> </label>
+      <input type="file" accept="image/x-png" name="image" required>
+    </div>
+        <div id = "formm" class="form-group">
+          <strong>Size:<br></strong>
+            <label class="radio-inline">
+                <input type="radio" value="S" name="productSize">S
+              </label>
+              <label class="radio-inline">
+                <input type="radio" value="M" name="productSize">M
+              </label>
+              <label class="radio-inline">
+                <input type="radio" value="L" name="productSize">L
+              </label>
+              <label class="radio-inline">
+                <input type="radio" value= "XL" name="productSize">XL
+              </label>
+        </div>
+        <div class="form-group">
+          <label for="product_quantity">Quantity:</label>
+          <input type="number" min="1" class="form-control" id="quantity" placeholder="Enter quantity" name="productQuantity"  required>
+        </div>
+    <% if (user) { %>
       <div class="form-group">
       <input type="hidden" class="form-control" id="userID" name = "userID" value="<%= user._id %>">
     </div>
-    
+    <% } %>
+
     <div class="form-group">
       <input type="hidden" class="form-control" id="userDesign" name = "userDesign" value="google.png">
     </div>
     <div class="form-group">
       <label for="contact">Contact No:</label>
-      <input type="number" class="form-control" id="contact" placeholder="eg. 9867656789" name="contact">
+      <input type="tel" class="form-control" id="contact" placeholder="eg. 9867656789" name="contact" required>
+    </div>
+    <div class="form-group">
+      <label for="text">Delivery Address:</label>
+      <input type="string" class="form-control" id="address" placeholder="28 Kilo, Dhulikhel" name="deliveryAddress" required>
     </div>
     <div class="form-group">
       <label for="email">Email Id:</label>
-      <input type="email" class="form-control" id="email" placeholder="abc@xyz.com" name="email">
-    </div>
-    <div class="form-group">
-      <label for="email">Delivery Address:</label>
-      <input type="string" class="form-control" id="address" placeholder="28 Kilo, Dhulikhel" name="deliveryAddress">
+      <input type="email" class="form-control" id="email" placeholder="abc@xyz.com" name="email" required>
     </div>
     <div class="form-group">
       <label for="notes">Extra notes:</label>
     <!--   <input type="text" class="form-control" id="notes" placeholder="Anything you would like to tell us about your preferences??" name="notes"> -->
     <textarea class="form-control" rows="3" id="notes" name="notes" placeholder="Anything you would like to tell us about your preferences??"></textarea>
     </div>
-    <div class="form-group">
-      <label for="image">Or.. Input your own design:</label>
-      <input type="file" name="image">
-    </div>
+   
+    <button type="submit" class="btn btn-default btn-sucess"> Submit </button>
+     </div>
     
-    <button type="submit" name="submit" class="btn-warning btn-md">Submit</button>
-    <% } else { %>
-    <strong>Please Login to send us your design</strong>
-<a href="/login" class="btn btn-success">Login</a>
-      <a href="/signup" class="btn btn-success">Register</a>
-    <% } %>
   </form>
 
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<% } else { %>
+<div style="padding-top:100px">
+ <strong>Please Login to send us your design</strong>
+<a href="/login" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Login</a>
+      <a href="/signup" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Register</a>
+  <% } %>
+</div>
+  </div>
   </div>
 
-<!-- 
-    <a href="#" onclick="this.href = $('#shirtDiv img:first').attr('src');" download>Click here to download image</a> -->
-
-
-  </div>
-
-  </div>
-    <hr>
-  <hr>
-  <hr>
-  <hr>
-
-		      	<!-- <form action="reqProduct/insert" method="post" onsubmit="return confirm('Are you sure you have got everything right?');">
-		      	<input type="hidden" name="product_name" value="tshirt" id="id">
-				<strong>Size:<br></strong>
-				<label class="radio-inline">
-			      <input type="radio" name="product_size">S
-			    </label>
-			    <label class="radio-inline">
-			      <input type="radio" name="product_size">M
-			    </label>
-			    <label class="radio-inline">
-			      <input type="radio" name="product_size">L
-			    </label>
-			    <label class="radio-inline">
-			      <input type="radio" name="product_size">XL
-			    </label>
-			    <br><br>
-				
-				<strong>Quantity:<br></strong>
-				<input type="text" name = "product_quantity" placeholder="Quantity"><br/><br/>
-				<strong>Total:<br></strong>
-				<input type="number" name = "total" placeholder="total"><br/><br/>
-				<strong>Contact No:<br></strong>
-				<input type="number" name = "contact" placeholder="contact no"><br/><br/>
-				<strong>Email id:<br/></strong>
-				<input type="email" name = "email" placeholder="email"><br/><br/>
-				<strong>Extra Notes:</strong>
-				<input type="text" name = "notes" placeholder="Anything you would like to tell us about your preferences??"><br/><br/>
-
-				<strong>Or... choose your own design:<br/></strong>
-				<input type="file" name = "image" ><br/>
-				<br/>
-				<input type = "submit" name ="submit">
-				</form> -->
-			    
-		      		      		       		   
-		    </div>
-		
-		  </div>
-		
-		</section>
+                                     
+        </div>
+    
+      </div>
+    
+    </section>
     </div><!-- /container -->
 
 
@@ -535,19 +322,15 @@
     <!-- Placed at the end of the document so the pages load faster -->    
  <!--    <script src="/javascripts/bootstrap.min.js"></script>     -->
     <script type="text/javascript">
-
- 	
-
+  
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-35639689-1']);
   _gaq.push(['_trackPageview']);
-
   (function() {
     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
-
 </script>
 
     <!-- Le javascript -->
@@ -557,54 +340,46 @@
 
 
 <script>
+  function download1(){
 
-
-	function download1(){
         var download = document.getElementById("download");
         var image = document.getElementById("tcanvas").toDataURL("image/png")
                     .replace("image/png", "image/octet-stream");
         download.setAttribute("href", image);
-
     }
-
-
 /*
 function download(url,name){
   $('<a>').attr({href:url,download:name})[0].click();
 }*/
-
 /*function downloadFabric(canvas,name){
-	console.log('export image');
-	var tshirt_design = canvas.toDataURL();
+  console.log('export image');
+  var tshirt_design = canvas.toDataURL();
   download(canvas.toDataURL(),name+'.png');
 }*/
    /*   function exportCanvasAsPNG(id, fileName) {
-
     var canvasElement = document.getElementById(tcanvas);
-
     var MIME_TYPE = "image/png";
-
     var imgURL = canvasElement.toDataURL(MIME_TYPE);
-
     var dlLink = document.createElement('a');
     dlLink.download = fileName;
     dlLink.href = imgURL;
     dlLink.dataset.downloadurl = [MIME_TYPE, dlLink.download, dlLink.href].join(':');
-
     document.body.appendChild(dlLink);
     dlLink.click();
     document.body.removeChild(dlLink);
 }*/
-
      function multiply(){
      var ans= (document.form.price.value)*(document.form.product_quantity.value)
      document.form.total.value=ans;
      }
 
-
+ 
+$(document).ready(function(){
+    $("#myBtn").click(function(){
+        $("#myModal").modal();
+    });
+});
 
  </script>
 
  <% include ./partials/footer %>
-  </body>
-</html>

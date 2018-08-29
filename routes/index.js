@@ -204,6 +204,12 @@ module.exports = function(app, passport) {
         })
     })
 
+            app.get('/ourtemplate', function(req,res){
+        res.render('ourtemplate.ejs',{
+            user : req.user
+        });
+    })
+
 // =============================================================================
 // AUTHENTICATE (FIRST LOGIN) ==================================================
 // =============================================================================

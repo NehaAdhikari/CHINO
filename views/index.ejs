@@ -2,18 +2,18 @@
 <% include ./partials/header %>
 
 
-<!-- Header with full-height image -->
+
 <div class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
-  <div class="w3-text-black" style="padding:500px">
+   <div class="w3-text-white" style="padding:200px">
     <span class="w3-jumbo w3-hide-small">Create what you like</span><br>
     <span class="w3-xxxlarge w3-hide-large w3-hide-medium">Create what you like</span><br>
     <span class="w3-xlarge">Wear your t-shirts with the designs that you want.</span>
     <p><% if (user) { %>
-      <a href="/indext" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Design Yourself</a>
-      <a href="/logout" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Logout</a>
+      <a href="/indext" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-hover-opacity">Explore</a>
+      <a href="/logout" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-hover-opacity">Logout</a>
       <% } else { %>
-      <a href="/login" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Login</a>
-      <a href="/signup" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Register</a>
+      <a href="/login" class="w3-button w3-white w3-padding-large w3-large w3-margin-top  w3-hover-opacity">Login</a>
+      <a href="/signup" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-hover-opacity">Register</a>
       <% } %>
     </p>
   </div>

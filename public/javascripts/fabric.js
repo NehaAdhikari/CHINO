@@ -2928,28 +2928,28 @@ fabric.util.string = {
      * @param {Function} callback Callback to execute when script is finished loading
      */
     function getScript(url, callback) {
-    	var headEl = fabric.document.getElementsByTagName("head")[0],
-    	    scriptEl = fabric.document.createElement('script'), 
-    	    loading = true;
+      var headEl = fabric.document.getElementsByTagName("head")[0],
+          scriptEl = fabric.document.createElement('script'), 
+          loading = true;
 
-    	scriptEl.type = 'text/javascript';
-    	scriptEl.setAttribute('runat', 'server');
+      scriptEl.type = 'text/javascript';
+      scriptEl.setAttribute('runat', 'server');
 
-    	/** @ignore */
-    	scriptEl.onload = /** @ignore */ scriptEl.onreadystatechange = function(e) {
-    	  if (loading) {
-    	    if (typeof this.readyState == 'string' && 
-    	        this.readyState !== 'loaded' && 
-    	        this.readyState !== 'complete') return;
-      	  loading = false;
-      		callback(e || fabric.window.event);
-      		scriptEl = scriptEl.onload = scriptEl.onreadystatechange = null;
-      	}
-    	};
-    	scriptEl.src = url;
-    	headEl.appendChild(scriptEl);
-    	// causes issue in Opera
-    	// headEl.removeChild(scriptEl);
+      /** @ignore */
+      scriptEl.onload = /** @ignore */ scriptEl.onreadystatechange = function(e) {
+        if (loading) {
+          if (typeof this.readyState == 'string' && 
+              this.readyState !== 'loaded' && 
+              this.readyState !== 'complete') return;
+          loading = false;
+          callback(e || fabric.window.event);
+          scriptEl = scriptEl.onload = scriptEl.onreadystatechange = null;
+        }
+      };
+      scriptEl.src = url;
+      headEl.appendChild(scriptEl);
+      // causes issue in Opera
+      // headEl.removeChild(scriptEl);
     }
 
     fabric.util.getScript = getScript;
@@ -12999,16 +12999,16 @@ fabric.Image.filters.Tint = fabric.util.createClass( /** @scope fabric.Image.fil
         iLen = data.length, i,
         r, g, b, a;
   
-	var rgb = parseInt(this.color).toString(16);
-	var cr = parseInt('0x'+rgb.substr(0, 2));
-	var cg = parseInt('0x'+rgb.substr(2, 2));
-	var cb = parseInt('0x'+rgb.substr(4, 2)); 
-	
+  var rgb = parseInt(this.color).toString(16);
+  var cr = parseInt('0x'+rgb.substr(0, 2));
+  var cg = parseInt('0x'+rgb.substr(2, 2));
+  var cb = parseInt('0x'+rgb.substr(4, 2)); 
+  
     for (i = 0; i < iLen; i+=4) {
 
       a = data[i+3];
       
-      if (a > 0){		
+      if (a > 0){   
         data[i] = cr;
         data[i+1] = cg;
         data[i+2] = cb;      
